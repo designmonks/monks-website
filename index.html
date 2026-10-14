@@ -162,9 +162,10 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 /* Work */
 .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 24px }
 .case { display: grid; gap: 12px; min-width: 0 }
-.shot { aspect-ratio: 3 / 4; max-width: 100%; border-radius: 8px; overflow: hidden; position: relative; margin-bottom: 12px }
-.shot > .sc { position: absolute; inset: 0; display: grid; place-items: center; transition: transform .6s var(--ease) }
-.case:hover .shot > .sc { transform: scale(1.04) }
+.shot { aspect-ratio: 4 / 3; max-width: 100%; border-radius: 8px; overflow: hidden; position: relative; margin-bottom: 12px; background: var(--surface-2) }
+.shot img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease) }
+.case:hover .shot img { transform: scale(1.04) }
+.shot-fb { position: absolute; inset: 0; display: grid; place-items: center; font: 400 clamp(28px, 3vw, 44px)/1 var(--display); color: var(--ink-3) }
 .case .t1 { transition: color .3s }
 .case:hover .t1 { color: var(--accent) }
 
@@ -411,15 +412,15 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   <section class="sec wrap" id="work" style="padding-top:0">
     <div class="head">
       <h2 class="h2">UI/UX design and development <span class="hi">case studies.</span></h2>
-      <a class="pill" href="#contact">See all work</a>
+      <a class="pill" href="https://www.designmonks.co/projects" target="_blank" rel="noopener">See all work</a>
     </div>
     <div class="cases">
-      <a class="case" href="#work"><div class="shot" role="img" aria-label="Plenty Pay fintech mobile app home screen"><div class="sc sc-pay"><div class="ph"><b></b><i></i><i></i><i></i></div></div></div><h3 class="t1">Plenty Pay</h3><p class="body">FinTech · Product design and mobile app development, from the first wireframes to the screens in the App Store.</p></a>
-      <a class="case" href="#work"><div class="shot" role="img" aria-label="Triply travel booking web app"><div class="sc sc-trip"><div class="br"><div class="pg"><span></span></div></div></div></div><h3 class="t1">Triply</h3><p class="body">Travel · UX design and web app development for a booking product with a shorter checkout.</p></a>
-      <a class="case" href="#work"><div class="shot" role="img" aria-label="Gummiz candy brand identity"><div class="sc sc-brand"><div class="mark">gz.</div></div></div><h3 class="t1">Gummiz</h3><p class="body">FMCG · Brand strategy, logo and packaging identity for a consumer snacks brand.</p></a>
-      <a class="case" href="#work"><div class="shot" role="img" aria-label="Skillophy edtech web app dashboard"><div class="sc sc-edu"><div class="br"><div class="pg"><span></span></div></div></div></div><h3 class="t1">Skillophy</h3><p class="body">EdTech · UX and UI design for a web app that tracks learner progress.</p></a>
-      <a class="case" href="#work"><div class="shot" role="img" aria-label="Clarity Traders SaaS trading dashboard"><div class="sc sc-saas"><div class="br"><div class="pg"><span></span></div></div></div></div><h3 class="t1">Clarity Traders</h3><p class="body">SaaS · Platform engineering for a trading tools company.</p></a>
-      <a class="case" href="#work"><div class="shot" role="img" aria-label="Fitmate fitness app screens"><div class="sc sc-fit"><div class="ph"><b></b><i></i><i></i><i></i></div></div></div><h3 class="t1">Fitmate</h3><p class="body">Fitness · Mobile app UI design for a workout tracking product.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/real-estate-ui-ux-built-for-confidence-copy" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6acdf0ca67a8cf99202620e1_Thumbnail%20(74).png" alt="Peak travel agency brand identity by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Peak</span></div><h3 class="t1">Peak</h3><p class="body">Travel · A lively travel-agency brand identity with expressive type, bold colours and destination visuals.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/real-estate-ui-ux-built-for-confidence" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ac789bed71b775fd16dab57_UX%20_%20Design%20Monks.png" alt="Vane real estate property search app UI by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Vane</span></div><h3 class="t1">Vane</h3><p class="body">Real Estate · Property search and listing UI with lifestyle-led branding, filtering and clear calls to action.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/kozer-coffee-brand-identity" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4b2fac1aa7ff60b78c252_Thumbnail%20(73).png" alt="Kozer specialty coffee packaging and brand identity by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Kozer</span></div><h3 class="t1">Kozer</h3><p class="body">Food &amp; Beverages · Premium brand identity and packaging for a specialty coffee brand, with heritage details and origin-led character.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/geopulse-b2b-saas-dashboard-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ac4f1eb21939303574de0e9_UX%20_%20Design%20Monks.png" alt="Geopulse B2B SaaS operations dashboard design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Geopulse</span></div><h3 class="t1">Geopulse</h3><p class="body">SaaS · A B2B operations dashboard for oil and gas teams, combining real-time monitoring, analytics and alerts.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/metabb-web3-rewards-app-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4a78b52097ccf2861c3fe_Frame%20214.png" alt="MetaBB Web3 rewards mobile app design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">MetaBB</span></div><h3 class="t1">MetaBB</h3><p class="body">Web3 · A mobile-first rewards app bringing tasks, cashback, airdrops, referrals and wallet management into one place.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/optiq-smart-glasswear-website-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4a8cb3e547936f7145fe3_Frame%20215.png" alt="OPTIQ smart glasses website design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">OPTIQ</span></div><h3 class="t1">OPTIQ</h3><p class="body">E-commerce · A premium landing page for smart glasses, blending AR concepts, cinematic visuals and 3D presentation to drive pre-orders.</p></a>
     </div>
   </section>
 
