@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Monks | Product Design &amp; Development Studio for Startups</title>
 <link rel="canonical" href="https://www.monks.company/">
@@ -10,12 +11,21 @@
 <meta property="og:description" content="Design Monks and Dev Monks under one roof: UI/UX design, branding, SaaS, mobile app and AI development.">
 <meta property="og:url" content="https://www.monks.company/">
 <meta name="theme-color" content="#f5f5f6">
-<meta property="og:image" content="https://www.monks.company/icon-512.png">
+<meta property="og:site_name" content="Monks">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.monks.company/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Monks: product design and development, under one roof">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Monks | Product Design &amp; Development Studio">
+<meta name="twitter:description" content="Design Monks and Dev Monks under one roof: UI/UX design, branding, SaaS, mobile app and AI development.">
+<meta name="twitter:image" content="https://www.monks.company/og-image.png">
 <link rel="icon" href="favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <meta name="description" content="Monks brings Design Monks and Dev Monks together: UI/UX design, branding, SaaS, mobile app and AI development from one team. 200+ brands, 50+ products shipped.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Monks","description":"Product design and development studio, parent company of Design Monks and Dev Monks.","address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressCountry":"BD"},"subOrganization":[{"@type":"Organization","name":"Design Monks","url":"https://designmonks.co"},{"@type":"Organization","name":"Dev Monks","url":"https://devmonks.co"}],"sameAs":["https://designmonks.co","https://devmonks.co"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://www.monks.company/#org", "name": "Monks", "url": "https://www.monks.company/", "logo": "https://www.monks.company/icon-512.png", "image": "https://www.monks.company/og-image.png", "description": "Product design and development studio for startups and enterprise teams, and the parent company of Design Monks and Dev Monks.", "address": {"@type": "PostalAddress", "addressLocality": "Dhaka", "addressCountry": "BD"}, "founder": [{"@type": "Person", "name": "Atiqur Rahaman", "jobTitle": "Co-founder & CEO"}, {"@type": "Person", "name": "Abdullah Al Noman", "jobTitle": "Co-founder & COO"}, {"@type": "Person", "name": "Saiful Islam", "jobTitle": "Co-founder & CTO, Dev Monks"}], "subOrganization": [{"@type": "Organization", "name": "Design Monks", "url": "https://designmonks.co"}, {"@type": "Organization", "name": "Dev Monks", "url": "https://devmonks.co"}], "sameAs": ["https://designmonks.co", "https://devmonks.co"], "knowsAbout": ["UI/UX design", "Brand identity", "Website design", "SaaS development", "Mobile app development", "AI development", "MVP development"]}, {"@type": "WebSite", "@id": "https://www.monks.company/#website", "url": "https://www.monks.company/", "name": "Monks", "publisher": {"@id": "https://www.monks.company/#org"}, "inLanguage": "en"}, {"@type": "FAQPage", "@id": "https://www.monks.company/#faq", "mainEntity": [{"@type": "Question", "name": "What does Monks do?", "acceptedAnswer": {"@type": "Answer", "text": "Monks is a product design and development studio. Through Design Monks and Dev Monks we offer UI/UX design, branding, website design, SaaS and mobile app development, and AI development under one contract."}}, {"@type": "Question", "name": "Can I hire only one studio?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Hire Design Monks for design only, Dev Monks for engineering only, or Monks for the full team. Many clients start with one studio and add the other later."}}, {"@type": "Question", "name": "How much does a project cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on scope. After a short discovery call we send a fixed quote or a monthly plan. Design Monks offers flexible monthly, quarterly and annual billing with no long-term lock-in."}}, {"@type": "Question", "name": "How long does an MVP take to design and build?", "acceptedAnswer": {"@type": "Answer", "text": "We agree a timeline in discovery, once scope is clear. Because design and engineering plan together from week one, there is no gap between design sign-off and development start."}}, {"@type": "Question", "name": "Do you work with clients outside Bangladesh?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our team is based in Dhaka and works with clients across the US, Europe, the Middle East and Asia, with regular calls and weekly demos."}}, {"@type": "Question", "name": "Who owns the designs and code?", "acceptedAnswer": {"@type": "Answer", "text": "You do. Design files, source code and documentation are handed over in full, and both studios offer support after launch."}}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap">
@@ -270,7 +280,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 .foot { padding-top: 80px; padding-bottom: 32px; display: grid; gap: 56px }
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px }
 .foot-grid > * { min-width: 0 }
-.foot h4 { font: 500 14px/18px var(--ui); color: var(--ink-3); margin-bottom: 16px }
+.foot .fh { font: 500 14px/18px var(--ui); color: var(--ink-3); margin-bottom: 16px }
 .foot li + li { margin-top: 10px }
 .foot ul a:hover { color: var(--accent) }
 .giant { width: 100%; height: auto; display: block; color: var(--ink) }
@@ -589,9 +599,9 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 <footer class="foot wrap">
   <div class="foot-grid">
     <div><p class="body" style="max-width:34ch">The parent company of Design Monks and Dev Monks. Product design and development for startups and enterprise teams, based in Dhaka, Bangladesh.</p></div>
-    <div><h4>Services</h4><ul><li><a href="#services">Product design</a></li><li><a href="#services">Brand identity</a></li><li><a href="#services">Website design</a></li><li><a href="#services">SaaS development</a></li><li><a href="#services">Mobile app development</a></li><li><a href="#services">AI development</a></li></ul></div>
-    <div><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#work">Case studies</a></li><li><a href="#process">Process</a></li><li><a href="#team">Leadership</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-    <div><h4>Studios</h4><ul><li><a href="https://designmonks.co" target="_blank" rel="noopener">Design Monks</a></li><li><a href="https://devmonks.co" target="_blank" rel="noopener">Dev Monks</a></li><li><span style="color:var(--ink-3)">Growth Monks, soon</span></li></ul></div>
+    <div><p class="fh">Services</p><ul><li><a href="#services">Product design</a></li><li><a href="#services">Brand identity</a></li><li><a href="#services">Website design</a></li><li><a href="#services">SaaS development</a></li><li><a href="#services">Mobile app development</a></li><li><a href="#services">AI development</a></li></ul></div>
+    <div><p class="fh">Company</p><ul><li><a href="#about">About</a></li><li><a href="#work">Case studies</a></li><li><a href="#process">Process</a></li><li><a href="#team">Leadership</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div><p class="fh">Studios</p><ul><li><a href="https://designmonks.co" target="_blank" rel="noopener">Design Monks</a></li><li><a href="https://devmonks.co" target="_blank" rel="noopener">Dev Monks</a></li><li><span style="color:var(--ink-3)">Growth Monks, soon</span></li></ul></div>
   </div>
   <svg class="giant" viewBox="0 0 292 81" role="img" aria-label="Monks"><use href="#mk"/></svg>
   <div class="legal"><span>© Monks 2026</span><span>Terms · Privacy</span></div>
