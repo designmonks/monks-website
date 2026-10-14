@@ -597,6 +597,24 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   ctl.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
   v.querySelector('source').addEventListener('error', function () { v.hidden = true; });
 
+  // Client logos: trim the empty space built into each SVG so every logo fills its tile
+  var box = document.createElement('div');
+  box.style.cssText = 'position:absolute;left:-9999px;top:0;width:0;height:0;overflow:hidden';
+  document.body.appendChild(box);
+  [].forEach.call(document.querySelectorAll('.logo-tile img'), function (im) {
+    if (!/\.svg(\?|$)/i.test(im.src) || !window.fetch) return;
+    fetch(im.src).then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (txt) {
+      var svg = new DOMParser().parseFromString(txt, 'image/svg+xml').documentElement;
+      if (!svg || svg.nodeName.toLowerCase() !== 'svg') return;
+      svg = document.importNode(svg, true); box.appendChild(svg);
+      var b = svg.getBBox(); box.removeChild(svg);
+      if (!b.width || !b.height) return;
+      svg.setAttribute('viewBox', [b.x, b.y, b.width, b.height].join(' '));
+      svg.removeAttribute('width'); svg.removeAttribute('height');
+      im.src = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)], { type: 'image/svg+xml' }));
+    }).catch(function () {});
+  });
+
   // Client logos: each tile swaps to its next logo, staggered left to right
   var tiles = [].slice.call(document.querySelectorAll('.logo-tile'));
   tiles.forEach(function (t) { [].slice.call(t.querySelectorAll('img')).forEach(function (im) { im.addEventListener('error', function () { var wasIn = im.classList.contains('in'); im.remove(); if (wasIn && t.querySelector('img')) t.querySelector('img').classList.add('in'); }); }); });
