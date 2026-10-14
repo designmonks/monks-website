@@ -343,10 +343,11 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 @media (max-width: 830px) {
   .nav { display: none }
   .menu-btn { display: inline-flex }
-  .top { padding-block: calc(10px + env(safe-area-inset-top, 0px)) 10px; background: var(--canvas); border-bottom: 1px solid var(--line); transition: background .3s, border-color .3s }
-  .top.on-dark { background: var(--canvas-dark); border-bottom-color: var(--line-inv) }
-  .top .menu-btn { background: var(--surface-2); backdrop-filter: none; -webkit-backdrop-filter: none }
-  .top.on-dark .menu-btn { background: rgba(255,255,255,.12); color: var(--paper) }
+  .top { padding-block: calc(10px + env(safe-area-inset-top, 0px)) 10px; border-bottom: 1px solid transparent; transition: background .3s, border-color .3s }
+  .top.past-hero { background: var(--canvas); border-bottom-color: var(--line) }
+  .top.past-hero.on-dark { background: var(--canvas-dark); border-bottom-color: var(--line-inv) }
+  .top.past-hero .menu-btn { background: var(--surface-2); backdrop-filter: none; -webkit-backdrop-filter: none }
+  .top.past-hero.on-dark .menu-btn { background: rgba(255,255,255,.12); color: var(--paper) }
   .reel { height: min(85vw, 50vh) }
   .hero-grid, .brief-grid, .faq, .grid2 { grid-template-columns: 1fr }
   .grid3, .cases { grid-template-columns: 1fr 1fr }
@@ -726,9 +727,12 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
   // Logo colour: white while the header sits over the video or a dark section
   var top = document.querySelector('.top'), darks = [document.querySelector('.reel')].concat([].slice.call(document.querySelectorAll('.dark')));
+  var hero = document.querySelector('.hero');
   function tone() {
     var y = top.getBoundingClientRect().height / 2;
     top.classList.toggle('on-dark', darks.some(function (el) { var r = el.getBoundingClientRect(); return r.top <= y && r.bottom >= y; }));
+    // mobile: the bar turns solid only once the hero has scrolled past
+    top.classList.toggle('past-hero', hero.getBoundingClientRect().bottom <= top.getBoundingClientRect().height);
   }
   window.addEventListener('scroll', tone, { passive: true }); window.addEventListener('resize', tone); tone();
 
