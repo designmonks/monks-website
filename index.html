@@ -275,10 +275,8 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 .legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font: 400 12px/16px var(--ui); color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 20px }
 
 /* Client logos: tiles that swap logos in a staggered wave */
-.clients-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px }
-.clients-head .h2 { max-width: 24ch; text-align: left }
-.logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px }
-.logo-tile { position: relative; height: 90px; border-radius: 8px; background: var(--surface-2); overflow: hidden; min-width: 0 }
+.logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; margin-top: clamp(48px, 5vw, 72px) }
+.logo-tile { position: relative; height: 90px; border-radius: 8px; background: var(--graphite); overflow: hidden; min-width: 0 }
 .logo-tile img { position: absolute; inset: 0; margin: auto; max-width: 64%; max-height: 34px; width: auto; height: auto; opacity: 0; transform: translateY(60%); transition: opacity .6s var(--ease), transform .6s var(--ease) }
 .logo-tile img.in { opacity: 1; transform: none }
 .logo-tile img.out { opacity: 0; transform: translateY(-60%) }
@@ -321,7 +319,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 @media (max-width: 576px) {
   .grid3, .grid4, .cases, .voices, .nums, .fields { grid-template-columns: 1fr }
   .nums { grid-template-columns: 1fr 1fr }
-  .logos { grid-template-columns: 1fr 1fr; gap: 12px }
+  .logos { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px }
   .logo-tile { height: 76px }
   .card, .step, .dcard { padding: 24px }
   .cta { height: 56px; font-size: 16px; padding-left: 20px }
@@ -389,20 +387,6 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
         </div>
       </div>
     </div>
-    <div class="nums" aria-label="Monks in numbers">
-      <div><b>200+</b><span>brands served by Design Monks</span></div>
-      <div><b>50+</b><span>products shipped by Dev Monks</span></div>
-      <div><b>30+</b><span>in-house developers</span></div>
-      <div><b>8+</b><span>years building software</span></div>
-      <div><b>4.9</b><span>average client rating</span></div>
-    </div>
-  </section>
-
-  <section class="sec wrap" id="clients" style="padding-top:0">
-    <div class="clients-head">
-      <h2 class="h2">Trusted by 200+ brands, <span class="hi">from startups to global names.</span></h2>
-      <a class="pill av" href="#contact"><span class="avs" aria-hidden="true"><span style="background:#cdd6dd"><img src="assets/lead-1.jpg" alt="" decoding="async" width="80" height="80"></span><span style="background:#cdd6dd"><img src="assets/lead-2.jpg" alt="" decoding="async" width="80" height="80"></span><span style="background:#cdd6dd"><img src="assets/lead-3.jpg" alt="" decoding="async" width="80" height="80"></span></span>Book a call with a lead</a>
-    </div>
     <ul class="logos" aria-label="Clients of Design Monks and Dev Monks">
       <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f1f680fdbf02fa0eae57_Logo_Y%20Combinator_mono.svg" alt="Y Combinator" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f03409370b706fb922c8_Logo_Guardian_mono.svg" alt="Guardian" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/697b6e3416493b65e726d165_Logo_Coinpulse_%20mono.svg" alt="Coin Pulse" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885efa747ec9f1d1564f668_Logo_docuseal_mono.svg" alt="DocuSeal" loading="lazy" decoding="async"></li>
       <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/68a091feeaa832d6e633b930_Logo_Goldman%20Sachs_mono.svg" alt="Goldman Sachs" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885ee9e7ebe3a3c0e3a331c_Logo_akij_mono.svg" alt="Akij" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f2004933c2b4d513d932_Logo_yenex_mono.svg" alt="Yenex" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885ee66114ee66a929deac9_Logo_affine_mono.svg" alt="AFFiNE" loading="lazy" decoding="async"></li>
@@ -411,6 +395,13 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
       <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f1aadb3edb2617313123_Logo_telenor_mono.svg" alt="Telenor" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/68db9056e42ba9fd6c172833_Logo_Clarity_mono.svg" alt="Clarity" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f14fe135439678c205c4_Logo_ostad_mono.svg" alt="Ostad" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f10530ade15b8f215893_Logo_onethread_mono.svg" alt="Onethread" loading="lazy" decoding="async"></li>
       <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885eece6aa97547b732fdf2_Logo_axiata_mono.svg" alt="Axiata" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/68dcdfc38248b93d8a3fe1ed_Logo_Esdiac_mono.svg" alt="Esdiac" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f18ddddd13f9898fa4a1_Logo_Sift_mono.svg" alt="Sift" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885efb8de6485b41ef30512_Logo_edvive_mono.svg" alt="Edvive" loading="lazy" decoding="async"></li>
     </ul>
+    <div class="nums" aria-label="Monks in numbers">
+      <div><b>200+</b><span>brands served by Design Monks</span></div>
+      <div><b>50+</b><span>products shipped by Dev Monks</span></div>
+      <div><b>30+</b><span>in-house developers</span></div>
+      <div><b>8+</b><span>years building software</span></div>
+      <div><b>4.9</b><span>average client rating</span></div>
+    </div>
   </section>
 
   <section class="sec wrap" id="about" style="padding-top:0">
