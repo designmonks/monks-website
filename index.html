@@ -77,6 +77,9 @@ button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit
 .cta .ic { width: 56px; height: 56px; border-radius: 50%; background: var(--paper); color: var(--ink); display: grid; place-items: center; transition: transform .4s var(--ease) }
 .cta:hover .ic { transform: rotate(45deg) }
 .cta .ic svg { width: 18px; height: 18px }
+.cta.av { padding-left: 8px; gap: 14px }
+.cta.av .avs span { width: 48px; height: 48px; border-color: var(--accent); margin-left: -14px }
+.cta.av .avs span:first-child { margin-left: 0 }
 .cta.sm { height: 40px; padding: 4px 4px 4px 16px; gap: 10px; font: 400 13px/16px var(--ui) }
 .cta.sm .ic { width: 32px; height: 32px }
 .cta.sm .ic svg { width: 13px; height: 13px }
@@ -305,6 +308,10 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   .card, .step, .dcard { padding: 24px }
   .cta { height: 56px; font-size: 16px; padding-left: 20px }
   .cta .ic { width: 48px; height: 48px }
+  .cta.av { gap: 10px; font-size: 15px; max-width: 100% }
+  .cta.av .avs span { width: 36px; height: 36px; margin-left: -10px }
+  .cta.av .avs span:first-child { margin-left: 0 }
+  .cta.av .lab { white-space: normal; line-height: 1.2 }
   .bar-r .cta.sm .lab { display: none }
   .bar-r .cta.sm { padding-left: 4px }
   .person { grid-template-columns: 1fr }
@@ -360,8 +367,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
       <div class="hero-r">
         <p class="body">Monks is a product design and development studio for startups and enterprise teams. UI/UX design, branding, SaaS, mobile app and AI development, delivered by one team.</p>
         <div class="btns">
-          <a class="cta" href="#contact"><span class="lab">Share your idea</span><span class="ic"><svg><use href="#arr"/></svg></span></a>
-          <a class="pill av" href="#contact"><span class="avs" aria-hidden="true"><span style="background:#cdd6dd"><img src="assets/lead-1.jpg" alt="" decoding="async" width="80" height="80"></span><span style="background:#cdd6dd"><img src="assets/lead-2.jpg" alt="" decoding="async" width="80" height="80"></span><span style="background:#cdd6dd"><img src="assets/lead-3.jpg" alt="" decoding="async" width="80" height="80"></span></span>Book a call with a lead</a>
+          <a class="cta av" href="#contact"><span class="avs" aria-hidden="true"><span style="background:#cdd6dd"><img src="assets/lead-1.jpg" alt="" decoding="async" width="80" height="80"></span><span style="background:#cdd6dd"><img src="assets/lead-2.jpg" alt="" decoding="async" width="80" height="80"></span><span style="background:#cdd6dd"><img src="assets/lead-3.jpg" alt="" decoding="async" width="80" height="80"></span></span><span class="lab">Book a call with a lead</span><span class="ic"><svg><use href="#arr"/></svg></span></a>
         </div>
       </div>
     </div>
