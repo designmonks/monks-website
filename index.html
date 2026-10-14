@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monks | Product Design &amp; Development Studio for Startups</title>
+<link rel="canonical" href="https://designmonks.github.io/monks-website/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Monks | Product Design &amp; Development Studio">
+<meta property="og:description" content="Design Monks and Dev Monks under one roof: UI/UX design, branding, SaaS, mobile app and AI development.">
+<meta property="og:url" content="https://designmonks.github.io/monks-website/">
+<meta name="theme-color" content="#f5f5f6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23ff470a'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' font-family='Arial' fill='%23ffffff'%3Em%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Monks brings Design Monks and Dev Monks together: UI/UX design, branding, SaaS, mobile app and AI development from one team. 200+ brands, 50+ products shipped.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Monks","description":"Product design and development studio, parent company of Design Monks and Dev Monks.","address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressCountry":"BD"},"subOrganization":[{"@type":"Organization","name":"Design Monks","url":"https://designmonks.co"},{"@type":"Organization","name":"Dev Monks","url":"https://devmonks.co"}],"sameAs":["https://designmonks.co","https://devmonks.co"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400&family=Inter:wght@400;500&display=swap">
+<style>
+/* Layout: Fireart Studio system applied to Monks. Light #f5f5f6 canvas for hero, services, houses, process and work,
+   then one hard switch to #19191a for proof (testimonials, leadership, FAQ, brief), then a light footer.
+   Display grotesk at 400 for headlines, Inter 400/500 for UI. Orange only on CTAs and highlighted phrases. No shadows. */
+:root {
+  --canvas: #f5f5f6;
+  --canvas-dark: #19191a;
+  --surface: #ffffff;
+  --surface-2: #ededed;
+  --graphite: #323234;
+  --accent: #ff470a;
+  --ink: #000000;
+  --ink-2: #464554;
+  --ink-3: #76757f;
+  --paper: #ffffff;
+  --paper-2: #bfbec9;
+  --glass: rgba(255,255,255,.7);
+  --glass-90: rgba(255,255,255,.9);
+  --line: rgba(0,0,0,.1);
+  --line-inv: rgba(255,255,255,.12);
+  --field: #dfdfdf;
+  --display: "Funnel Display", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gut-l: max(16px, env(safe-area-inset-left, 0px), min(8.5vw, 132px));
+  --gut-r: max(16px, env(safe-area-inset-right, 0px), min(8.5vw, 132px));
+  --sec: clamp(64px, 8vw, 120px);
+  --ease: cubic-bezier(.2,.7,.2,1);
+  color-scheme: light;
+}
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+html { scroll-behavior: smooth; scroll-padding-top: 88px }
+body { margin: 0; background: var(--canvas); color: var(--ink); font: 400 16px/22px var(--ui); letter-spacing: -.01em; -webkit-font-smoothing: antialiased; overflow-x: hidden }
+a { color: inherit; text-decoration: none }
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0 }
+ul, ol { padding: 0; list-style: none }
+button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px }
+.wrap { padding-left: var(--gut-l); padding-right: var(--gut-r) }
+.sec { padding-block: var(--sec) }
+.dark { background: var(--canvas-dark); color: var(--paper) }
+
+/* Type */
+.h1 { font: 400 clamp(34px, 3.6vw, 54px)/1.15 var(--display); letter-spacing: 0; text-wrap: balance }
+.h2 { font: 400 clamp(30px, 4vw, 60px)/1.2 var(--display); letter-spacing: 0; text-wrap: balance }
+.hx { font: 400 clamp(38px, 5vw, 76px)/1.05 var(--display); letter-spacing: 0; text-wrap: balance }
+.t1 { font: 500 24px/32px var(--ui); letter-spacing: 0 }
+.t2 { font: 500 18px/24px var(--ui); letter-spacing: -.01em }
+.lbl { font: 500 14px/18px var(--ui); letter-spacing: -.01em }
+.cap { font: 400 12px/16px var(--ui); letter-spacing: -.01em }
+.body { color: var(--ink-2) }
+.dark .body { color: var(--paper-2) }
+.hi { color: var(--accent) }
+.head { display: grid; gap: 20px; justify-items: center; text-align: center; margin-bottom: clamp(36px, 4vw, 56px) }
+.head .body { max-width: 56ch }
+
+/* Buttons */
+.cta { display: inline-flex; align-items: center; gap: 16px; height: 64px; padding: 4px 4px 4px 24px; border: 0; border-radius: 120px; background: var(--accent); color: var(--paper); font: 500 18px/24px var(--ui); letter-spacing: -.01em; cursor: pointer; white-space: nowrap }
+.cta .ic { width: 56px; height: 56px; border-radius: 50%; background: var(--paper); color: var(--ink); display: grid; place-items: center; transition: transform .4s var(--ease) }
+.cta:hover .ic { transform: rotate(45deg) }
+.cta .ic svg { width: 18px; height: 18px }
+.cta.sm { height: 40px; padding: 4px 4px 4px 16px; gap: 10px; font: 400 13px/16px var(--ui) }
+.cta.sm .ic { width: 32px; height: 32px }
+.cta.sm .ic svg { width: 13px; height: 13px }
+.pill { display: inline-flex; align-items: center; gap: 12px; height: 56px; padding: 16px 24px; border: 0; border-radius: 100px; background: var(--graphite); color: var(--paper); font: 500 18px/24px var(--ui); cursor: pointer; white-space: nowrap; transition: background .3s }
+.pill:hover { background: var(--ink) }
+.pill.av { height: 48px; padding: 4px 24px 4px 4px; font: 400 16px/22px var(--ui) }
+.avs { display: flex }
+.avs span { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--graphite); margin-left: -12px; display: grid; place-items: center; font: 500 13px var(--ui); color: var(--ink) }
+.avs span:first-child { margin-left: 0 }
+.chips { display: flex; flex-wrap: wrap; gap: 8px }
+.chip { display: inline-flex; align-items: center; height: 38px; padding: 8px 12px; border-radius: 100px; background: var(--surface); color: var(--ink); font: 400 16px/22px var(--ui); transition: background .3s, color .3s }
+a.chip:hover { background: var(--graphite); color: var(--paper) }
+.card .chip { background: var(--surface-2); height: 32px; padding: 5px 12px; font-size: 14px }
+
+/* Header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; padding-block: 16px }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px }
+.logo-pill { display: inline-flex; align-items: center; height: 40px; padding: 0 18px; border-radius: 120px; background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--ink) }
+.logo-pill svg { height: 18px; width: auto; display: block }
+.nav { display: flex; gap: 6px }
+.nav a, .menu-btn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 120px; background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font: 400 12px/16px var(--ui); color: var(--ink); transition: background .3s }
+.nav a:hover { background: var(--surface) }
+.menu-btn { display: none; border: 0; cursor: pointer }
+.bar-r { display: flex; gap: 6px; align-items: center }
+.drop { position: absolute; right: var(--gut-r); top: 64px; width: min(360px, calc(100vw - 32px)); padding: 8px; border-radius: 24px; background: var(--glass-90); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: grid; gap: 6px }
+.drop a { display: block; padding: 16px 24px; border-radius: 16px; background: var(--surface); font: 400 20px/26px var(--ui) }
+
+/* Hero */
+.hero { padding-top: 4px; padding-bottom: var(--sec) }
+.reel { position: relative; aspect-ratio: 16 / 7.2; max-width: 100%; border-radius: 8px; overflow: hidden; background: var(--canvas-dark); color: var(--paper) }
+.reel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.reel-ph { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 14px;
+  background: radial-gradient(60% 80% at 70% 30%, rgba(255,71,10,.18), transparent 60%), radial-gradient(50% 70% at 20% 90%, rgba(255,255,255,.07), transparent 60%), var(--canvas-dark) }
+.reel-ph svg { width: clamp(120px, 18vw, 240px); height: auto; color: var(--paper) }
+.reel-ph span { font: 400 12px/16px var(--ui); color: var(--paper-2); letter-spacing: .08em; text-transform: uppercase }
+.reel-ctl { position: absolute; left: 16px; bottom: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px 0 12px; border: 0; border-radius: 120px; background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--ink); font: 400 12px/16px var(--ui); cursor: pointer }
+.reel-ctl svg { width: 14px; height: 14px }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px 64px; align-items: end; padding-top: clamp(32px, 4vw, 56px) }
+.hero-grid > * { min-width: 0 }
+.hero-l { display: grid; gap: 24px }
+.hero-r { display: grid; gap: 28px; justify-items: start }
+.hero-r .body { max-width: 52ch }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center }
+
+/* Numbers */
+.nums { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; padding-top: 32px; margin-top: clamp(48px, 5vw, 72px); border-top: 1px solid var(--line) }
+.nums div { display: grid; gap: 6px; min-width: 0 }
+.nums b { font: 400 clamp(36px, 3.4vw, 54px)/1 var(--display); font-variant-numeric: tabular-nums }
+.nums span { font: 400 14px/18px var(--ui); color: var(--ink-3) }
+
+/* About statement */
+.about { text-align: center; display: grid; gap: 28px; justify-items: center }
+.statement { font: 400 clamp(26px, 3vw, 44px)/1.25 var(--display); max-width: 30ch; text-wrap: balance }
+.grad { background: linear-gradient(90deg, #000 20%, #ff470a 62%); -webkit-background-clip: text; background-clip: text; color: transparent }
+.about .body { max-width: 64ch }
+
+/* Cards */
+.card { background: var(--surface); border-radius: 8px; padding: 32px; display: grid; gap: 16px; align-content: start }
+.svc { grid-template-rows: auto auto 1fr auto }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px }
+.grid3 > *, .grid4 > *, .grid2 > * { min-width: 0 }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px }
+.house-tag { font: 500 14px/18px var(--ui); color: var(--ink-3) }
+.go { display: flex; justify-content: space-between; align-items: center; padding-top: 8px }
+.go i { width: 40px; height: 40px; border-radius: 50%; background: var(--surface-2); display: grid; place-items: center; transition: background .3s, color .3s }
+.go i svg { width: 14px; height: 14px }
+.card:hover .go i { background: var(--accent); color: var(--paper) }
+
+/* Houses */
+.house { display: grid; gap: 16px; align-content: start }
+.house .media { aspect-ratio: 16 / 10; max-width: 100%; border-radius: 8px; overflow: hidden; position: relative }
+.house .link { display: inline-flex; gap: 8px; align-items: center; font: 500 16px/22px var(--ui) }
+.house .link:hover { color: var(--accent) }
+.row { display: grid; grid-template-columns: minmax(140px, 1fr) 2fr auto; gap: 24px; align-items: center; background: var(--surface-2); border-radius: 8px; padding: 22px 24px; margin-top: 24px }
+.row > * { min-width: 0 }
+
+/* Process */
+.step { background: var(--surface); border-radius: 8px; padding: 32px; display: grid; gap: 12px; align-content: start }
+.step .n { font: 400 54px/1 var(--display); color: var(--ink-3); font-variant-numeric: tabular-nums; margin-bottom: 20px }
+.step .by { font: 500 14px/18px var(--ui); color: var(--accent) }
+
+/* Work */
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 24px }
+.case { display: grid; gap: 12px; min-width: 0 }
+.shot { aspect-ratio: 3 / 4; max-width: 100%; border-radius: 8px; overflow: hidden; position: relative; margin-bottom: 12px }
+.shot > .sc { position: absolute; inset: 0; display: grid; place-items: center; transition: transform .6s var(--ease) }
+.case:hover .shot > .sc { transform: scale(1.04) }
+.case .t1 { transition: color .3s }
+.case:hover .t1 { color: var(--accent) }
+
+/* Mockup scenes (stand-ins for real project photography) */
+.ph { width: 46%; aspect-ratio: 9 / 19; border-radius: 26px; background: #fff; padding: 10px; display: grid; grid-template-rows: auto 1fr auto auto auto; gap: 8px; border: 5px solid #19191a }
+.ph::before { content: ""; height: 8px; width: 40%; border-radius: 4px; background: #e4e3e6; justify-self: center }
+.ph b { border-radius: 12px; background: #19191a }
+.ph i { height: 34px; border-radius: 10px; background: #f0eff2 }
+.br { width: 80%; aspect-ratio: 4 / 3; border-radius: 8px; background: #fff; display: grid; grid-template-rows: 18px 1fr; overflow: hidden }
+.br::before { content: ""; background: #e9e8eb radial-gradient(circle at 10px 9px, #c9c8cc 3px, transparent 4px) }
+.br .pg { display: grid; grid-template-columns: 26% 1fr; gap: 8px; padding: 8px }
+.br .pg::before { content: ""; border-radius: 4px; background: #f0eff2 }
+.br .pg span { border-radius: 6px; background: linear-gradient(#f0eff2 0 22%, transparent 22% 30%, #e4e3e6 30% 64%, transparent 64% 72%, #f0eff2 72%) }
+.sc-pay { background: #d9cfc1 }
+.sc-trip { background: #cdd6dd }
+.sc-trip .pg span { background: linear-gradient(160deg, #9fb3c4, #e9eef2 70%) }
+.sc-brand { background: #e3d3cf }
+.sc-brand .mark { width: 56%; aspect-ratio: 1; border-radius: 50%; background: #19191a; display: grid; place-items: center; color: #e3d3cf; font: 400 clamp(28px, 3vw, 44px)/1 var(--display) }
+.sc-edu { background: #cfd6c9 }
+.sc-saas { background: #2a2a2c }
+.sc-saas .br { background: #19191a }
+.sc-saas .br::before { background: #323234 }
+.sc-saas .br .pg::before { background: #323234 }
+.sc-saas .br .pg span { background: linear-gradient(to top, #464554 0 30%, transparent 30%), repeating-linear-gradient(90deg, #323234 0 12%, transparent 12% 16%) }
+.sc-fit { background: #d8d4ce }
+.sc-fit .ph b { background: radial-gradient(circle, transparent 42%, #19191a 43% 58%, transparent 59%) #f0eff2 }
+.sc-dm { background: #e3d3cf }
+.sc-dev { background: #2a2a2c }
+.code { width: 74%; border-radius: 8px; background: #19191a; padding: 18px; display: grid; gap: 9px }
+.code i { height: 8px; border-radius: 4px; background: #464554 }
+.code i:nth-child(2) { width: 70%; margin-left: 12% ; background: #76757f }
+.code i:nth-child(3) { width: 54%; margin-left: 12% }
+.code i:nth-child(4) { width: 80%; margin-left: 24%; background: #bfbec9 }
+.code i:nth-child(5) { width: 40%; margin-left: 12% }
+.code i:nth-child(6) { width: 30% }
+
+/* Industries + stack rows */
+.stack { display: grid; gap: 8px }
+.stack .row { margin-top: 0; grid-template-columns: minmax(120px, 1fr) 3fr; padding: 20px 24px }
+.ind { margin-bottom: 40px; justify-content: center }
+
+/* Dark: testimonials */
+.dark .head .body { color: var(--paper-2) }
+.voices { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px }
+.voices > * { min-width: 0 }
+.dcard { background: var(--graphite); border-radius: 8px; padding: 32px; display: grid; gap: 28px; align-content: space-between }
+.rating { grid-row: span 2; align-content: end }
+.rating b { font: 400 clamp(96px, 9vw, 140px)/1 var(--display); font-variant-numeric: tabular-nums }
+.rating .stars { color: var(--accent); letter-spacing: .12em; font-size: 18px }
+.quote { font: 400 clamp(22px, 2vw, 30px)/1.3 var(--display) }
+.who { display: flex; align-items: center; gap: 12px }
+.who .a { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font: 500 14px var(--ui); color: var(--ink) }
+.who small { display: block; font: 400 12px/16px var(--ui); color: var(--paper-2) }
+
+/* Dark: leadership + FAQ */
+.person { grid-template-columns: auto 1fr; gap: 24px; align-items: start }
+.person .a { width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; font: 400 24px var(--display); color: var(--ink) }
+.person > div { display: grid; gap: 8px; min-width: 0 }
+.person .role { font: 500 14px/18px var(--ui); color: var(--accent) }
+.faq { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px }
+.qa { border-top: 1px solid var(--line-inv); padding-block: 28px; display: grid; gap: 10px; min-width: 0 }
+
+/* Dark: brief */
+.brief { padding-block: clamp(96px, 12vw, 228px) clamp(64px, 8vw, 120px) }
+.brief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 80px; align-items: start }
+.brief-grid > * { min-width: 0 }
+.brief-l { display: grid; gap: 28px }
+.form { display: grid; gap: 24px }
+.grp { border: 0; padding: 0; margin: 0; display: grid; gap: 12px }
+.grp legend { font: 500 14px/18px var(--ui); color: var(--paper-2); padding: 0; margin-bottom: 12px }
+.opts { display: flex; flex-wrap: wrap; gap: 8px }
+.opts input { position: absolute; opacity: 0; pointer-events: none }
+.opts label { display: inline-flex; align-items: center; height: 38px; padding: 8px 14px; border-radius: 100px; background: var(--graphite); color: var(--paper); cursor: pointer; transition: background .25s, color .25s }
+.opts input:checked + label { background: var(--paper); color: var(--ink) }
+.opts input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.fields .full { grid-column: 1 / -1 }
+.fields input, .fields textarea { width: 100%; min-width: 0; background: var(--surface); color: var(--ink); border: 1px solid var(--field); border-radius: 3px; padding: 0 16px; height: 52px }
+.fields textarea { height: auto; padding: 12px 16px; resize: vertical }
+.fields ::placeholder { color: var(--ink-3) }
+.ok { color: var(--paper-2) }
+
+/* Footer */
+.foot { padding-top: 80px; padding-bottom: 32px; display: grid; gap: 56px }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px }
+.foot-grid > * { min-width: 0 }
+.foot h4 { font: 500 14px/18px var(--ui); color: var(--ink-3); margin-bottom: 16px }
+.foot li + li { margin-top: 10px }
+.foot ul a:hover { color: var(--accent) }
+.giant { width: 100%; height: auto; display: block; color: var(--ink) }
+.legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font: 400 12px/16px var(--ui); color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 20px }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .grid4 { grid-template-columns: repeat(2, 1fr) }
+  .nums { grid-template-columns: repeat(3, 1fr) }
+  .voices { grid-template-columns: 1fr 1fr }
+  .rating { grid-row: auto; grid-column: 1 / -1 }
+}
+@media (max-width: 830px) {
+  .nav { display: none }
+  .menu-btn { display: inline-flex }
+  .reel { aspect-ratio: 4 / 3.4 }
+  .hero-grid, .brief-grid, .faq, .grid2 { grid-template-columns: 1fr }
+  .grid3, .cases { grid-template-columns: 1fr 1fr }
+  .foot-grid { grid-template-columns: 1fr 1fr }
+  .row { grid-template-columns: 1fr; gap: 6px }
+  .stack .row { grid-template-columns: 1fr }
+}
+@media (max-width: 576px) {
+  .grid3, .grid4, .cases, .voices, .nums, .fields { grid-template-columns: 1fr }
+  .nums { grid-template-columns: 1fr 1fr }
+  .card, .step, .dcard { padding: 24px }
+  .cta { height: 56px; font-size: 16px; padding-left: 20px }
+  .cta .ic { width: 48px; height: 48px }
+  .bar-r .cta.sm .lab { display: none }
+  .bar-r .cta.sm { padding-left: 4px }
+  .person { grid-template-columns: 1fr }
+  .foot-grid { grid-template-columns: 1fr }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto }
+  * { transition: none !important }
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="mk" viewBox="0 0 292 81"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M238.938 79.5113H252.037H252.048L230.7 50.2121L250.456 26.9638H236.475C234.564 26.9638 232.759 27.8024 231.528 29.2568L214.564 49.3629V3.1847C214.564 1.4225 213.142 0 211.379 0H200.233V76.3266C200.233 78.0889 201.666 79.5113 203.418 79.5113H214.564V50.4244L233.789 76.8893C234.989 78.5347 236.899 79.5113 238.938 79.5113ZM80.9975 79.5218H69.8511C68.0889 79.5218 66.6664 78.0993 66.6664 76.3371V48.9487C66.6664 42.6854 62.9509 38.7576 57.3246 38.7576C51.6983 38.7576 47.6643 42.7916 47.6643 48.6302V79.5218H36.5179C34.7557 79.5218 33.3332 78.0993 33.3332 76.3371V48.9487C33.3332 42.6854 29.6177 38.7576 23.9914 38.7576C18.3651 38.7576 14.3312 42.6854 14.3312 48.9487V79.5218H3.1847C1.4225 79.5218 0 78.0993 0 76.3371V26.9636H9.97872C11.7409 26.9636 13.1634 28.3861 13.1634 30.1483V31.6345C16.6666 27.919 21.9744 25.7959 28.0254 25.7959C34.9255 25.7959 40.1272 28.3437 43.6304 33.333C47.7705 28.6621 53.9276 25.7959 61.1462 25.7959C73.4604 25.7959 80.9975 34.1823 80.9975 46.9211V79.5112V79.5218ZM194.49 79.5218H183.449C181.687 79.5218 180.265 78.0993 180.265 76.3371V48.8425C180.265 42.7916 176.337 38.6515 170.498 38.6515C164.659 38.6515 160.519 42.7916 160.519 48.8425V79.5218H149.373C147.611 79.5218 146.188 78.0993 146.188 76.3371V26.9636H156.167C157.929 26.9636 159.352 28.3861 159.352 30.1483V31.7407C163.067 28.0252 168.481 25.7959 174.744 25.7959C186.952 25.7959 194.49 34.1823 194.49 46.9211V79.5112V79.5218ZM256.177 61.8999L256.188 61.9118L250.678 68.5559C249.627 69.8192 249.723 71.6557 250.858 72.834C255.667 77.8659 262.631 80.8064 270.731 80.8064C276.676 80.8064 281.559 79.3202 285.381 76.3478C289.308 73.3754 291.219 69.2353 291.219 64.0336C291.219 56.2842 286.655 52.1441 276.463 48.004L271.368 45.8809C267.228 44.1823 265.848 43.2269 265.848 41.21C265.848 38.7684 267.971 37.4945 271.474 37.4945C275.827 37.4945 279.754 39.193 283.258 42.4838L288.608 35.9446C289.712 34.5964 289.521 32.6007 288.194 31.4754C283.756 27.7174 278.236 25.8066 271.57 25.8066C260.105 25.8066 252.249 31.6452 252.249 41.5178C252.249 49.2673 256.92 53.6197 266.58 57.5475L272.207 59.8829C276.134 61.5814 277.621 62.4307 277.621 64.66C277.621 67.5262 274.754 69.0124 270.933 69.0124C265.735 69.0124 260.75 66.6808 256.188 61.9118L256.198 61.8999H256.177ZM132.907 33.3452C135.303 35.7357 137.205 38.5775 138.499 41.7094C139.794 44.8359 140.46 48.188 140.46 51.5778V54.715C140.46 57.9704 139.821 61.199 138.575 64.2073C137.328 67.2157 135.502 69.9446 133.197 72.2492C130.898 74.5538 128.164 76.3749 125.155 77.6212C122.147 78.8675 118.924 79.5122 115.668 79.5122H89.3618C88.6688 79.5122 88.0027 79.2328 87.5084 78.744C87.0196 78.2497 86.7402 77.5836 86.7402 76.8906V50.5839C86.7402 44.0086 89.351 37.7019 94.0032 33.0551C98.6553 28.4029 104.957 25.7922 111.537 25.7922H114.675C118.064 25.7922 121.416 26.4583 124.543 27.7529C127.67 29.0476 130.517 30.9493 132.907 33.3452ZM113.606 64.8627C118.612 64.8627 123.334 63.047 127.256 59.6089C128.373 58.6366 128.486 56.939 127.508 55.8216C126.531 54.7043 124.833 54.5914 123.716 55.5692C120.788 58.137 117.302 59.4907 113.606 59.4907C109.91 59.4907 106.412 58.137 103.485 55.5692C102.367 54.5914 100.67 54.7043 99.6921 55.8216C98.7144 56.939 98.8272 58.6366 99.9446 59.6089C103.866 63.047 108.599 64.8627 113.606 64.8627Z"/></symbol><symbol id="arr" viewBox="0 0 14 14"><path d="M3 11 11 3M4.5 3H11v6.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol></svg>
+
+<header class="top wrap">
+  <div class="bar">
+    <a class="logo-pill" href="#top" aria-label="Monks home"><svg viewBox="0 0 292 81" width="65" height="18"><use href="#mk"/></svg></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#houses">Houses</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#voices">Clients</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="bar-r">
+      <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="drop">Menu</button>
+      <a class="cta sm" href="#contact"><span class="lab">Contact</span><span class="ic"><svg><use href="#arr"/></svg></span></a>
+    </div>
+  </div>
+  <nav class="drop" id="drop" aria-label="Menu" hidden>
+    <a href="#services">Services</a><a href="#houses">Houses</a><a href="#process">Process</a><a href="#work">Work</a><a href="#voices">Clients</a><a href="#faq">FAQ</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero wrap" aria-label="Introduction">
+    <div class="reel">
+      <div class="reel-ph" aria-hidden="true"><svg viewBox="0 0 292 81"><use href="#mk"/></svg><span>Showreel 2026</span></div>
+      <video id="reel" muted loop playsinline preload="metadata" aria-label="Design Monks showreel 2026">
+        <source src="https://designmonks.b-cdn.net/DM%20Others/DM%20Showreel%202026.mp4" type="video/mp4">
+      </video>
+      <button class="reel-ctl" type="button" id="reel-ctl" hidden><svg viewBox="0 0 14 14" fill="currentColor"><rect x="3" y="2" width="3" height="10" rx="1"/><rect x="8" y="2" width="3" height="10" rx="1"/></svg><span>Pause reel</span></button>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-l">
+        <div class="chips" aria-label="What we do">
+          <a class="chip" href="#services">UI/UX design</a><a class="chip" href="#services">Branding</a><a class="chip" href="#services">SaaS</a><a class="chip" href="#services">Mobile apps</a><a class="chip" href="#services">AI</a>
+        </div>
+        <h1 class="h1">Product design and development, <span class="hi">under one roof.</span></h1>
+      </div>
+      <div class="hero-r">
+        <p class="body">Monks is a product design and development studio for startups and enterprise teams. UI/UX design, branding, SaaS, mobile app and AI development, delivered by one team.</p>
+        <div class="btns">
+          <a class="cta" href="#contact"><span class="lab">Share your idea</span><span class="ic"><svg><use href="#arr"/></svg></span></a>
+          <a class="pill av" href="#contact"><span class="avs" aria-hidden="true"><span style="background:#e3d3cf">A</span><span style="background:#cdd6dd">D</span><span style="background:#cfd6c9">M</span></span>Book a call with a lead</a>
+        </div>
+      </div>
+    </div>
+    <div class="nums" aria-label="Monks in numbers">
+      <div><b>200+</b><span>brands served by Design Monks</span></div>
+      <div><b>50+</b><span>products shipped by Dev Monks</span></div>
+      <div><b>30+</b><span>in-house developers</span></div>
+      <div><b>8+</b><span>years building software</span></div>
+      <div><b>4.9</b><span>average client rating</span></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="about" style="padding-top:0">
+    <div class="about">
+      <p class="statement">Monks is the parent company of Design Monks and Dev Monks. <span class="grad">Together we take products from research and design through web, mobile and AI development to launch.</span></p>
+      <p class="body">Monks is the parent of Design Monks, a UI/UX design agency, and Dev Monks, a software development company. Most product teams lose weeks in the handoff between a design agency and a separate development team. Monks removes that gap. One project lead, one roadmap and one contract cover discovery, UX and UI design, brand identity, front-end and back-end engineering, QA and post-launch support. Founders building an MVP and enterprise teams modernising an existing platform get the same senior team from day one.</p>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="services" style="padding-top:0">
+    <div class="head">
+      <h2 class="h2">Design and development services, <span class="hi">from first sketch to scale.</span></h2>
+      <p class="body">Each service is led by the house that does it best, with the other one in the room.</p>
+    </div>
+    <div class="grid3">
+      <article class="card svc"><span class="house-tag">Design Monks</span><h3 class="t1">Product design</h3><p class="body">UI/UX design for web apps, dashboards and SaaS products. We start with user research and wireframes, then design every screen and hand over a design system your engineers can build from without guesswork.</p><div class="chips"><span class="chip">User research</span><span class="chip">Wireframes</span><span class="chip">UI design</span><span class="chip">Design systems</span><span class="chip">Prototyping</span></div></article>
+      <article class="card svc"><span class="house-tag">Design Monks</span><h3 class="t1">Brand identity</h3><p class="body">Branding for startups and growing companies: positioning, logo design, visual identity and brand guidelines, built to work across your product, website, pitch deck and social channels.</p><div class="chips"><span class="chip">Brand strategy</span><span class="chip">Logo design</span><span class="chip">Guidelines</span><span class="chip">Launch assets</span></div></article>
+      <article class="card svc"><span class="house-tag">Both houses</span><h3 class="t1">Websites</h3><p class="body">Marketing websites that convert, designed by Design Monks and built in Webflow or Framer. When a site outgrows no-code, Dev Monks moves it to Next.js without losing your SEO.</p><div class="chips"><span class="chip">Webflow</span><span class="chip">Framer</span><span class="chip">Next.js</span><span class="chip">CMS</span><span class="chip">CRO</span></div></article>
+      <article class="card svc"><span class="house-tag">Dev Monks</span><h3 class="t1">SaaS engineering</h3><p class="body">Custom software development for SaaS: multi-tenant platforms, enterprise portals, APIs and rapid MVP builds on React, Node.js and Python, with QA and cloud deployment included.</p><div class="chips"><span class="chip">MVP development</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">APIs</span><span class="chip">AWS</span></div></article>
+      <article class="card svc"><span class="house-tag">Dev Monks</span><h3 class="t1">Mobile apps</h3><p class="body">iOS and Android app development, native in Swift and Kotlin or cross-platform with Flutter. Designed in-house, so the app that ships matches the screens you approved.</p><div class="chips"><span class="chip">iOS</span><span class="chip">Android</span><span class="chip">Flutter</span><span class="chip">App Store launch</span></div></article>
+      <article class="card svc"><span class="house-tag">Dev Monks</span><h3 class="t1">AI products</h3><p class="body">AI development that does real work: agentic workflows, RAG systems and custom LLM features built on OpenAI, Anthropic and Gemini, plugged into the products and tools your team already uses.</p><div class="chips"><span class="chip">AI agents</span><span class="chip">RAG</span><span class="chip">LLM integration</span><span class="chip">Automation</span></div></article>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="houses" style="padding-top:0">
+    <div class="head">
+      <h2 class="h2">Two specialist companies, <span class="hi">one parent.</span></h2>
+      <p class="body">Hire one house for a focused brief, or bring in both for the whole product.</p>
+    </div>
+    <div class="grid2">
+      <article class="house">
+        <div class="media sc-dm" role="img" aria-label="Mobile app UI design in progress at Design Monks"><div class="sc" style="position:absolute;inset:0;display:grid;place-items:center"><div class="ph" style="width:24%"><b></b><i></i><i></i><i></i></div></div></div>
+        <span class="house-tag">Design studio · designmonks.co</span>
+        <h3 class="t1">Design Monks</h3>
+        <p class="body">An AI-powered UI/UX design agency for startups, SaaS and enterprise brands. Design Monks handles research, product design, branding and websites, with flexible monthly, quarterly or annual plans, unlimited revisions and lifetime support. 200+ brands served, rated 4.9.</p>
+        <a class="link" href="https://designmonks.co" target="_blank" rel="noopener">Visit Design Monks <svg width="12" height="12"><use href="#arr"/></svg></a>
+      </article>
+      <article class="house">
+        <div class="media sc-dev" role="img" aria-label="React component code built by Dev Monks"><div class="sc" style="position:absolute;inset:0;display:grid;place-items:center"><div class="code" style="width:52%"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+        <span class="house-tag">Engineering · devmonks.co</span>
+        <h3 class="t1">Dev Monks</h3>
+        <p class="body">A software development company building AI-powered web and mobile products. Dev Monks covers SaaS platforms, MVP development, mobile apps and AI automation, with 30+ in-house developers, 8+ years of experience and 50+ products shipped for startups, scale-ups and enterprises.</p>
+        <a class="link" href="https://devmonks.co" target="_blank" rel="noopener">Visit Dev Monks <svg width="12" height="12"><use href="#arr"/></svg></a>
+      </article>
+    </div>
+    <div class="row"><span class="t2">Growth Monks</span><p class="body">The next house, helping launched products find and keep customers.</p><span class="lbl" style="color:var(--ink-3)">Coming soon</span></div>
+  </section>
+
+  <section class="sec wrap" id="process" style="padding-top:0">
+    <div class="head">
+      <h2 class="h2">A product development process <span class="hi">with no handoff gap.</span></h2>
+      <p class="body">Design leads the early weeks and engineering leads the build. Both teams review every milestone together.</p>
+    </div>
+    <ol class="grid4">
+      <li class="step"><span class="n">1</span><h3 class="t1">Discover</h3><span class="by">Design Monks leads</span><p class="body">User interviews, competitor research and technical scoping. You get a discovery report, user personas and a costed roadmap both teams have signed off.</p></li>
+      <li class="step"><span class="n">2</span><h3 class="t1">Design</h3><span class="by">Both houses</span><p class="body">Visual direction, UI screens and a design system, reviewed by engineers every week so nothing reaches development that can't be built.</p></li>
+      <li class="step"><span class="n">3</span><h3 class="t1">Build</h3><span class="by">Dev Monks leads</span><p class="body">AI-assisted engineering in short sprints with weekly demos. Designers check each release against the system before it ships.</p></li>
+      <li class="step"><span class="n">4</span><h3 class="t1">Launch &amp; grow</h3><span class="by">Both houses</span><p class="body">QA, deployment and analytics, then conversion work and new features. Both houses stay on for post-launch support.</p></li>
+    </ol>
+  </section>
+
+  <section class="sec wrap" id="work" style="padding-top:0">
+    <div class="head">
+      <h2 class="h2">UI/UX design and development <span class="hi">case studies.</span></h2>
+      <a class="pill" href="#contact">See all work</a>
+    </div>
+    <div class="cases">
+      <a class="case" href="#work"><div class="shot" role="img" aria-label="Plenty Pay fintech mobile app home screen"><div class="sc sc-pay"><div class="ph"><b></b><i></i><i></i><i></i></div></div></div><h3 class="t1">Plenty Pay</h3><p class="body">FinTech · Product design and mobile app development, from the first wireframes to the screens in the App Store.</p></a>
+      <a class="case" href="#work"><div class="shot" role="img" aria-label="Triply travel booking web app"><div class="sc sc-trip"><div class="br"><div class="pg"><span></span></div></div></div></div><h3 class="t1">Triply</h3><p class="body">Travel · UX design and web app development for a booking product with a shorter checkout.</p></a>
+      <a class="case" href="#work"><div class="shot" role="img" aria-label="Gummiz candy brand identity"><div class="sc sc-brand"><div class="mark">gz.</div></div></div><h3 class="t1">Gummiz</h3><p class="body">FMCG · Brand strategy, logo and packaging identity for a consumer snacks brand.</p></a>
+      <a class="case" href="#work"><div class="shot" role="img" aria-label="Skillophy edtech web app dashboard"><div class="sc sc-edu"><div class="br"><div class="pg"><span></span></div></div></div></div><h3 class="t1">Skillophy</h3><p class="body">EdTech · UX and UI design for a web app that tracks learner progress.</p></a>
+      <a class="case" href="#work"><div class="shot" role="img" aria-label="Clarity Traders SaaS trading dashboard"><div class="sc sc-saas"><div class="br"><div class="pg"><span></span></div></div></div></div><h3 class="t1">Clarity Traders</h3><p class="body">SaaS · Platform engineering for a trading tools company.</p></a>
+      <a class="case" href="#work"><div class="shot" role="img" aria-label="Fitmate fitness app screens"><div class="sc sc-fit"><div class="ph"><b></b><i></i><i></i><i></i></div></div></div><h3 class="t1">Fitmate</h3><p class="body">Fitness · Mobile app UI design for a workout tracking product.</p></a>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="industries" style="padding-top:0">
+    <div class="head">
+      <h2 class="h2">Sectors we know, <span class="hi">tools we build with.</span></h2>
+      <p class="body">Our houses have designed and built products across regulated and fast-moving markets, from fintech apps to healthcare booking.</p>
+    </div>
+    <div class="chips ind"><span class="chip">FinTech</span><span class="chip">SaaS</span><span class="chip">EdTech</span><span class="chip">Travel</span><span class="chip">PropTech</span><span class="chip">HealthTech</span><span class="chip">CRM</span><span class="chip">E-commerce</span><span class="chip">FMCG</span><span class="chip">Fitness</span></div>
+    <dl class="stack">
+      <div class="row"><dt class="t2">Web</dt><dd class="body">React, Next.js, TypeScript, Tailwind</dd></div>
+      <div class="row"><dt class="t2">Mobile</dt><dd class="body">Flutter, Swift, Kotlin</dd></div>
+      <div class="row"><dt class="t2">Backend</dt><dd class="body">Node.js, Python, FastAPI, Django, PostgreSQL</dd></div>
+      <div class="row"><dt class="t2">AI</dt><dd class="body">OpenAI, Anthropic, Gemini, LangChain, vector databases</dd></div>
+      <div class="row"><dt class="t2">Design</dt><dd class="body">Figma, Webflow, Framer</dd></div>
+      <div class="row"><dt class="t2">Cloud</dt><dd class="body">AWS, Google Cloud, Vercel, Docker</dd></div>
+    </dl>
+  </section>
+
+  <div class="dark">
+    <section class="sec wrap" id="voices">
+      <div class="head">
+        <h2 class="h2">What clients say about <span class="hi">both houses.</span></h2>
+      </div>
+      <div class="voices">
+        <div class="dcard rating"><span class="stars" aria-hidden="true">★★★★★</span><div><b>4.9</b><p class="body" style="margin-top:12px">Average client rating across Design Monks and Dev Monks</p></div></div>
+        <figure class="dcard"><blockquote class="quote" style="margin:0">I've worked with Design Monks on three websites, and they've been <span class="hi">nothing but exceptional.</span></blockquote><figcaption class="who"><span class="a" style="background:#e3d3cf">A</span><span>Austin<small>CEO, Clarity LLC</small></span></figcaption></figure>
+        <figure class="dcard"><blockquote class="quote" style="margin:0">Working with Dev Monks on our ESDIAC app and group websites was <span class="hi">an excellent experience.</span></blockquote><figcaption class="who"><span class="a" style="background:#cdd6dd">S</span><span>Sofia Gouveia<small>Design Director, Esdiac</small></span></figcaption></figure>
+        <figure class="dcard"><blockquote class="quote" style="margin:0">Dev Monks is a <span class="hi">professional, reliable partner</span> for end-to-end product builds.</blockquote><figcaption class="who"><span class="a" style="background:#cfd6c9">A</span><span>Anika<small>Founder, Coin Pulse</small></span></figcaption></figure>
+        <figure class="dcard"><blockquote class="quote" style="margin:0">I've had the pleasure of collaborating with Dev Monks <span class="hi">for a while now</span> on my new project.</blockquote><figcaption class="who"><span class="a" style="background:#d8d4ce">T</span><span>Ted Nash<small>Founder &amp; CEO, Yenex</small></span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="sec wrap" id="team" style="padding-top:0">
+      <div class="head">
+        <h2 class="h2">The people <span class="hi">behind the houses.</span></h2>
+        <p class="body">Every engagement has a senior lead from each house who stays with it from discovery to launch.</p>
+      </div>
+      <div class="grid2">
+        <article class="dcard person"><span class="a" style="background:#e3d3cf" aria-hidden="true">AR</span><div><h3 class="t1">Atiqur Rahaman</h3><p class="role">CEO, Design Monks</p><p class="body">Leads Design Monks and its team of product designers, working with startups, SaaS companies and enterprise brands on UI/UX, branding and websites.</p></div></article>
+        <article class="dcard person"><span class="a" style="background:#cdd6dd" aria-hidden="true">DM</span><div><h3 class="t1">Dev Monks lead</h3><p class="role">Head of engineering, Dev Monks</p><p class="body">Leads the Dev Monks engineering team of 30+ developers across SaaS, mobile and AI product development.</p></div></article>
+      </div>
+    </section>
+
+    <section class="sec wrap" id="faq" style="padding-top:0">
+      <div class="head">
+        <h2 class="h2">Questions <span class="hi">founders ask us.</span></h2>
+        <p class="body">Can't find your answer? Send a brief and a lead will reply within one working day.</p>
+      </div>
+      <div class="faq">
+        <div class="qa"><h3 class="t2">What does Monks do?</h3><p class="body">Monks is a product design and development studio. Through Design Monks and Dev Monks we offer UI/UX design, branding, website design, SaaS and mobile app development, and AI development under one contract.</p></div>
+        <div class="qa"><h3 class="t2">Can I hire only one house?</h3><p class="body">Yes. Hire Design Monks for design only, Dev Monks for engineering only, or Monks for the full team. Many clients start with one house and add the other later.</p></div>
+        <div class="qa"><h3 class="t2">How much does a project cost?</h3><p class="body">It depends on scope. After a short discovery call we send a fixed quote or a monthly plan. Design Monks offers flexible monthly, quarterly and annual billing with no long-term lock-in.</p></div>
+        <div class="qa"><h3 class="t2">How long does an MVP take to design and build?</h3><p class="body">We agree a timeline in discovery, once scope is clear. Because design and engineering plan together from week one, there is no gap between design sign-off and development start.</p></div>
+        <div class="qa"><h3 class="t2">Do you work with clients outside Bangladesh?</h3><p class="body">Yes. Our team is based in Dhaka and works with clients across the US, Europe, the Middle East and Asia, with regular calls and weekly demos.</p></div>
+        <div class="qa"><h3 class="t2">Who owns the designs and code?</h3><p class="body">You do. Design files, source code and documentation are handed over in full, and both houses offer support after launch.</p></div>
+      </div>
+    </section>
+
+    <section class="brief wrap" id="contact">
+      <div class="brief-grid">
+        <div class="brief-l">
+          <h2 class="hx">Got a product in mind? <span class="hi">Let's design and build it.</span></h2>
+          <p class="body">Tell us what you're building. A lead from each house reads every brief and replies within one working day.</p>
+        </div>
+        <form class="form" id="brief" novalidate>
+          <fieldset class="grp"><legend>What do you need?</legend>
+            <div class="opts">
+              <input type="checkbox" id="o1" checked><label for="o1">Product design</label>
+              <input type="checkbox" id="o2"><label for="o2">Branding</label>
+              <input type="checkbox" id="o3"><label for="o3">Website</label>
+              <input type="checkbox" id="o4" checked><label for="o4">SaaS engineering</label>
+              <input type="checkbox" id="o5"><label for="o5">Mobile app</label>
+              <input type="checkbox" id="o6"><label for="o6">AI features</label>
+            </div>
+          </fieldset>
+          <fieldset class="grp"><legend>Budget</legend>
+            <div class="opts">
+              <input type="radio" name="b" id="b1"><label for="b1">$10k–25k</label>
+              <input type="radio" name="b" id="b2" checked><label for="b2">$25k–50k</label>
+              <input type="radio" name="b" id="b3"><label for="b3">$50k–100k</label>
+              <input type="radio" name="b" id="b4"><label for="b4">$100k+</label>
+            </div>
+          </fieldset>
+          <div class="fields">
+            <input id="f-name" placeholder="Your name" autocomplete="name" aria-label="Your name">
+            <input id="f-email" type="email" placeholder="Work email" autocomplete="email" aria-label="Work email">
+            <textarea id="f-msg" class="full" rows="4" placeholder="A few lines about the product" aria-label="About the product"></textarea>
+          </div>
+          <div><button class="cta" type="submit"><span class="lab">Send brief</span><span class="ic"><svg><use href="#arr"/></svg></span></button></div>
+          <p class="ok" id="ok" hidden>Thanks. This is a design preview, so nothing was sent.</p>
+        </form>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot wrap">
+  <div class="foot-grid">
+    <div><p class="body" style="max-width:34ch">The parent company of Design Monks and Dev Monks. Product design and development for startups and enterprise teams, based in Dhaka, Bangladesh.</p></div>
+    <div><h4>Services</h4><ul><li><a href="#services">Product design</a></li><li><a href="#services">Brand identity</a></li><li><a href="#services">Website design</a></li><li><a href="#services">SaaS development</a></li><li><a href="#services">Mobile app development</a></li><li><a href="#services">AI development</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#work">Case studies</a></li><li><a href="#process">Process</a></li><li><a href="#team">Leadership</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div><h4>Houses</h4><ul><li><a href="https://designmonks.co" target="_blank" rel="noopener">Design Monks</a></li><li><a href="https://devmonks.co" target="_blank" rel="noopener">Dev Monks</a></li><li><span style="color:var(--ink-3)">Growth Monks, soon</span></li></ul></div>
+  </div>
+  <svg class="giant" viewBox="0 0 292 81" role="img" aria-label="Monks"><use href="#mk"/></svg>
+  <div class="legal"><span>© Monks 2026</span><span>Terms · Privacy</span></div>
+</footer>
+
+<script>
+(function () {
+  // Hero reel: autoplay muted unless the viewer prefers reduced motion
+  var v = document.getElementById('reel'), ctl = document.getElementById('reel-ctl');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var playIcon = '<svg viewBox="0 0 14 14" fill="currentColor"><path d="M4 2.5v9l7.5-4.5z"/></svg>';
+  var pauseIcon = ctl.innerHTML.split('<span>')[0];
+  function label() { ctl.innerHTML = (v.paused ? playIcon : pauseIcon) + '<span>' + (v.paused ? 'Play reel' : 'Pause reel') + '</span>'; }
+  v.addEventListener('loadeddata', function () { ctl.hidden = false; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } label(); });
+  v.addEventListener('play', label); v.addEventListener('pause', label);
+  ctl.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
+  v.querySelector('source').addEventListener('error', function () { v.hidden = true; });
+
+  // Mobile menu
+  var mb = document.getElementById('menu-btn'), dr = document.getElementById('drop');
+  mb.addEventListener('click', function () { dr.hidden = !dr.hidden; mb.setAttribute('aria-expanded', String(!dr.hidden)); });
+  dr.addEventListener('click', function (e) { if (e.target.tagName === 'A') { dr.hidden = true; mb.setAttribute('aria-expanded', 'false'); } });
+
+  // Brief form
+  document.getElementById('brief').addEventListener('submit', function (e) { e.preventDefault(); document.getElementById('ok').hidden = false; });
+})();
+</script>
+
+</body>
+</html>
