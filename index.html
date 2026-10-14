@@ -106,13 +106,13 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
 /* Hero */
 .hero { padding-top: 4px; padding-bottom: var(--sec) }
-.reel { position: relative; aspect-ratio: 16 / 7.2; max-width: 100%; border-radius: 8px; overflow: hidden; background: var(--canvas-dark); color: var(--paper) }
+.reel { position: relative; height: min(56.25vw, 88vh); margin-left: calc(-1 * var(--gut-l)); margin-right: calc(-1 * var(--gut-r)); border-radius: 0; overflow: hidden; background: var(--canvas-dark); color: var(--paper) }
 .reel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
 .reel-ph { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 14px;
   background: radial-gradient(60% 80% at 70% 30%, rgba(255,71,10,.18), transparent 60%), radial-gradient(50% 70% at 20% 90%, rgba(255,255,255,.07), transparent 60%), var(--canvas-dark) }
 .reel-ph svg { width: clamp(120px, 18vw, 240px); height: auto; color: var(--paper) }
 .reel-ph span { font: 400 12px/16px var(--ui); color: var(--paper-2); letter-spacing: .08em; text-transform: uppercase }
-.reel-ctl { position: absolute; left: 16px; bottom: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px 0 12px; border: 0; border-radius: 120px; background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--ink); font: 400 12px/16px var(--ui); cursor: pointer }
+.reel-ctl { position: absolute; left: var(--gut-l); bottom: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px 0 12px; border: 0; border-radius: 120px; background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--ink); font: 400 12px/16px var(--ui); cursor: pointer }
 .reel-ctl svg { width: 14px; height: 14px }
 .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px 64px; align-items: end; padding-top: clamp(32px, 4vw, 56px) }
 .hero-grid > * { min-width: 0 }
@@ -273,7 +273,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 @media (max-width: 830px) {
   .nav { display: none }
   .menu-btn { display: inline-flex }
-  .reel { aspect-ratio: 4 / 3.4 }
+  .reel { height: 85vw }
   .hero-grid, .brief-grid, .faq, .grid2 { grid-template-columns: 1fr }
   .grid3, .cases { grid-template-columns: 1fr 1fr }
   .foot-grid { grid-template-columns: 1fr 1fr }
