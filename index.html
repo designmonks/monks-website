@@ -308,7 +308,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 .svc-list .svc > * { min-width: 0 }
 .svc-list .svc .body { grid-area: body }
 .svc-list .svc .chips { grid-area: chips; align-content: start }
-.svc-list .svc { grid-template-columns: minmax(180px, 1fr) 1.7fr minmax(220px, 1fr); grid-template-areas: "head body thumb" "head chips thumb"; grid-template-rows: auto 1fr }
+.svc-list .svc { grid-template-columns: minmax(220px, 1fr) minmax(160px, .9fr) 1.7fr; grid-template-areas: "thumb head body" "thumb head chips"; grid-template-rows: auto 1fr }
 .svc-head { grid-area: head; display: grid; gap: 8px; align-content: start }
 .svc-list .svc .chips { margin-top: 8px }
 .svc-thumb { grid-area: thumb; position: relative; aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden; background: var(--surface-2) }
