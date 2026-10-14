@@ -88,7 +88,6 @@ button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit
 .avs span { position: relative; overflow: hidden }
 .avs span img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
 .avs span:first-child { margin-left: 0 }
-.avs-img { height: 40px; width: auto; display: block; border-radius: 40px }
 .chips { display: flex; flex-wrap: wrap; gap: 8px }
 .chip { display: inline-flex; align-items: center; height: 38px; padding: 8px 12px; border-radius: 100px; background: var(--surface); color: var(--ink); font: 400 16px/22px var(--ui); transition: background .3s, color .3s }
 a.chip:hover { background: var(--graphite); color: var(--paper) }
@@ -348,7 +347,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
         <p class="body">Monks is a product design and development studio for startups and enterprise teams. UI/UX design, branding, SaaS, mobile app and AI development, delivered by one team.</p>
         <div class="btns">
           <a class="cta" href="#contact"><span class="lab">Share your idea</span><span class="ic"><svg><use href="#arr"/></svg></span></a>
-          <a class="pill av" href="#contact"><img class="avs-img" src="https://cdn.prod.website-files.com/672a72b52eb5f37692d645a9/67adb7fc40ac25c9c66f4018_aa9ab833b3c7ac4ca1390641d6680d27_CTA%20Image.avif" alt="Design Monks team, 40+ people" decoding="async" height="40">Book a call with a lead</a>
+          <a class="pill av" href="#contact"><span class="avs" aria-hidden="true"><span style="background:#cdd6dd"><img src="assets/lead-1.jpg" alt="" decoding="async" width="80" height="80"></span><span style="background:#cdd6dd"><img src="assets/lead-2.jpg" alt="" decoding="async" width="80" height="80"></span><span style="background:#cdd6dd"><img src="assets/lead-3.jpg" alt="" decoding="async" width="80" height="80"></span></span>Book a call with a lead</a>
         </div>
       </div>
     </div>
