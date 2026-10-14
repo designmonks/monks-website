@@ -240,12 +240,12 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 .person .role { font: 500 14px/18px var(--ui); color: var(--accent) }
 .person .a { position: relative; overflow: hidden }
 .person .a img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
-.team .person { grid-template-columns: 1fr; gap: 20px }
+.team .person { grid-template-columns: 1fr; gap: 20px; align-content: start }
 .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px }
 .qa { border-top: 1px solid var(--line-inv); padding-block: 28px; display: grid; gap: 10px; min-width: 0 }
 
 /* Dark: brief */
-.brief { padding-block: clamp(96px, 12vw, 228px) clamp(64px, 8vw, 120px) }
+.brief { padding-block: clamp(16px, 3vw, 40px) var(--sec) }
 .brief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 80px; align-items: start }
 .brief-grid > * { min-width: 0 }
 .brief-l { display: grid; gap: 28px }
@@ -319,8 +319,9 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 @media (max-width: 576px) {
   .grid3, .grid4, .cases, .voices, .nums, .fields { grid-template-columns: 1fr }
   .nums { grid-template-columns: 1fr 1fr }
-  .logos { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px }
-  .logo-tile { height: 76px }
+  .logos { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 40px }
+  .logo-tile { height: 60px }
+  .logo-tile img { width: 70%; height: 22px }
   .card, .step, .dcard { padding: 24px }
   .cta { height: 56px; font-size: 16px; padding-left: 20px }
   .cta .ic { width: 48px; height: 48px }
