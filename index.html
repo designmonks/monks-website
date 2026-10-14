@@ -289,7 +289,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 /* Client logos: tiles that swap logos in a staggered wave */
 .logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; margin-top: clamp(48px, 5vw, 72px) }
 .logo-tile { position: relative; height: 90px; border-radius: 8px; background: var(--surface-2); overflow: hidden; min-width: 0 }
-.logo-tile img { position: absolute; inset: 0; margin: auto; width: 56%; height: calc(26px * var(--k, 1)); object-fit: contain; filter: brightness(0); opacity: 0; transform: translateY(60%); transition: opacity .6s var(--ease), transform .6s var(--ease) }
+.logo-tile img { position: absolute; inset: 0; margin: auto; width: 56%; height: 26px; object-fit: contain; filter: brightness(0); opacity: 0; transform: translateY(60%); transition: opacity .6s var(--ease), transform .6s var(--ease) }
 .logo-tile img.in { opacity: 1; transform: none }
 .logo-tile img.out { opacity: 0; transform: translateY(-60%) }
 
@@ -343,7 +343,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   .nums div:last-child { grid-column: 1 / -1 }
   .logos { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 40px }
   .logo-tile { height: 60px }
-  .logo-tile img { width: 70%; height: calc(22px * var(--k, 1)) }
+  .logo-tile img { width: 70%; height: 22px }
   .card, .step, .dcard { padding: 24px }
   .cta { height: 56px; font-size: 16px; padding-left: 20px }
   .cta .ic { width: 48px; height: 48px }
@@ -415,8 +415,8 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
       <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/68a091feeaa832d6e633b930_Logo_Goldman%20Sachs_mono.svg" alt="Goldman Sachs" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885ee9e7ebe3a3c0e3a331c_Logo_akij_mono.svg" alt="Akij" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f2004933c2b4d513d932_Logo_yenex_mono.svg" alt="Yenex" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885ee66114ee66a929deac9_Logo_affine_mono.svg" alt="AFFiNE" loading="lazy" decoding="async"></li>
       <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f16d40ff0915c93957cd_Logo_pepsi_mono.svg" alt="Pepsi" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f0546756b58458d71b9b_Logo_IPDC_mono.svg" alt="IPDC" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f1c594a1ec8ca506cd37_Logo_triply_mono.svg" alt="Triply" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885efde40d2b35d3d22dea0_Logo_fitmate_mono.svg" alt="Fitmate" loading="lazy" decoding="async"></li>
       <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f1d2a43bb3fbe72ee40c_Logo_viber_mono.svg" alt="Viber" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/68dce06d6d2fe778ba755c28_Logo_Plentypay_mono.svg" alt="Plenty Pay" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f19c8b03c8659ce41c98_Logo_skillophy_mono.svg" alt="Skillophy" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f0e8feb06d3d996d79c3_Logo_Memorybox_mono.svg" alt="Memorybox" loading="lazy" decoding="async"></li>
-      <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f1aadb3edb2617313123_Logo_telenor_mono.svg" alt="Telenor" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/68db9056e42ba9fd6c172833_Logo_Clarity_mono.svg" alt="Clarity" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f14fe135439678c205c4_Logo_ostad_mono.svg" alt="Ostad" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f10530ade15b8f215893_Logo_onethread_mono.svg" alt="Onethread" loading="lazy" decoding="async"></li>
-      <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885eece6aa97547b732fdf2_Logo_axiata_mono.svg" alt="Axiata" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/68dcdfc38248b93d8a3fe1ed_Logo_Esdiac_mono.svg" alt="Esdiac" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f18ddddd13f9898fa4a1_Logo_Sift_mono.svg" alt="Sift" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885efb8de6485b41ef30512_Logo_edvive_mono.svg" alt="Edvive" loading="lazy" decoding="async"></li>
+      <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f1aadb3edb2617313123_Logo_telenor_mono.svg" alt="Telenor" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/68db9056e42ba9fd6c172833_Logo_Clarity_mono.svg" alt="Clarity" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f14fe135439678c205c4_Logo_ostad_mono.svg" alt="Ostad" loading="lazy" decoding="async"></li>
+      <li class="logo-tile"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885eece6aa97547b732fdf2_Logo_axiata_mono.svg" alt="Axiata" class="in" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885f18ddddd13f9898fa4a1_Logo_Sift_mono.svg" alt="Sift" loading="lazy" decoding="async"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6885efb8de6485b41ef30512_Logo_edvive_mono.svg" alt="Edvive" loading="lazy" decoding="async"></li>
     </ul>
     <div class="nums" aria-label="Monks in numbers">
       <div><b>200+</b><span>brands served by Design Monks</span></div>
@@ -620,44 +620,21 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   ctl.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
   v.querySelector('source').addEventListener('error', function () { v.hidden = true; });
 
-  // Client logos: trim each SVG to its visible ink (pixel scan, so clip paths and
-  // invisible shapes don't count), then scale by shape so wide and compact logos
-  // carry the same visual weight
+  // Client logos: trim the empty space built into each SVG so every logo fills its tile
+  var box = document.createElement('div');
+  box.style.cssText = 'position:absolute;left:-9999px;top:0;width:0;height:0;overflow:hidden';
+  document.body.appendChild(box);
   [].forEach.call(document.querySelectorAll('.logo-tile img'), function (im) {
     if (!/\.svg(\?|$)/i.test(im.src) || !window.fetch) return;
     fetch(im.src).then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (txt) {
       var svg = new DOMParser().parseFromString(txt, 'image/svg+xml').documentElement;
       if (!svg || svg.nodeName.toLowerCase() !== 'svg') return;
-      var vb = (svg.getAttribute('viewBox') || '').split(/[\s,]+/).map(Number);
-      if (vb.length !== 4 || !vb[2] || !vb[3]) {
-        var w0 = parseFloat(svg.getAttribute('width')), h0 = parseFloat(svg.getAttribute('height'));
-        if (!w0 || !h0) return; vb = [0, 0, w0, h0];
-      }
-      var S = 400 / Math.max(vb[2], vb[3]), cw = Math.ceil(vb[2] * S), ch = Math.ceil(vb[3] * S);
-      svg.setAttribute('viewBox', vb.join(' ')); svg.setAttribute('width', cw); svg.setAttribute('height', ch);
-      var probe = new Image();
-      probe.onload = function () {
-        var c = document.createElement('canvas'); c.width = cw; c.height = ch;
-        var x = c.getContext('2d'); x.drawImage(probe, 0, 0, cw, ch);
-        var d; try { d = x.getImageData(0, 0, cw, ch).data; } catch (e) { return; }
-        var x0 = cw, y0 = ch, x1 = -1, y1 = -1;
-        for (var y = 0; y < ch; y++) for (var i = 0; i < cw; i++) {
-          var p = (y * cw + i) * 4;
-          // ink = visible and not a white/near-white background fill
-          if (d[p + 3] > 24 && (d[p] + d[p + 1] + d[p + 2]) < 690) {
-            if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y;
-          }
-        }
-        if (x1 < 0) return;
-        var bx = vb[0] + x0 / S, by = vb[1] + y0 / S, bw = (x1 - x0 + 1) / S, bh = (y1 - y0 + 1) / S;
-        svg.setAttribute('viewBox', [bx, by, bw, bh].join(' '));
-        svg.removeAttribute('width'); svg.removeAttribute('height');
-        // equal visual area: a logo 5x wider than tall gets the base height, squarer ones grow
-        var k = Math.min(1.7, Math.max(0.75, Math.sqrt(5 / (bw / bh))));
-        im.style.setProperty('--k', k.toFixed(3));
-        im.src = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)], { type: 'image/svg+xml' }));
-      };
-      probe.src = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)], { type: 'image/svg+xml' }));
+      svg = document.importNode(svg, true); box.appendChild(svg);
+      var b = svg.getBBox(); box.removeChild(svg);
+      if (!b.width || !b.height) return;
+      svg.setAttribute('viewBox', [b.x, b.y, b.width, b.height].join(' '));
+      svg.removeAttribute('width'); svg.removeAttribute('height');
+      im.src = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(svg)], { type: 'image/svg+xml' }));
     }).catch(function () {});
   });
 
