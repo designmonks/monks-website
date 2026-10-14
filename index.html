@@ -337,6 +337,10 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 @media (max-width: 830px) {
   .nav { display: none }
   .menu-btn { display: inline-flex }
+  .top { padding-block: calc(10px + env(safe-area-inset-top, 0px)) 10px; background: var(--canvas); border-bottom: 1px solid var(--line); transition: background .3s, border-color .3s }
+  .top.on-dark { background: var(--canvas-dark); border-bottom-color: var(--line-inv) }
+  .top .menu-btn { background: var(--surface-2); backdrop-filter: none; -webkit-backdrop-filter: none }
+  .top.on-dark .menu-btn { background: rgba(255,255,255,.12); color: var(--paper) }
   .reel { height: min(85vw, 50vh) }
   .hero-grid, .brief-grid, .faq, .grid2 { grid-template-columns: 1fr }
   .grid3, .cases { grid-template-columns: 1fr 1fr }
