@@ -140,7 +140,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 .about { text-align: center; display: grid; gap: 28px; justify-items: center }
 .statement { font: 400 clamp(26px, 3vw, 44px)/1.25 var(--display); max-width: 30ch; text-wrap: balance }
 .grad { background: linear-gradient(90deg, #000 20%, #32a374 62%); -webkit-background-clip: text; background-clip: text; color: transparent }
-.about .body { max-width: 64ch }
+.about .body { max-width: 64ch; text-align: left }
 
 /* Cards */
 .card { background: var(--surface); border-radius: 8px; padding: 32px; display: grid; gap: 16px; align-content: start }
@@ -172,7 +172,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
 /* Work */
 .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 24px }
-.case { display: grid; gap: 12px; min-width: 0 }
+.case { display: grid; gap: 12px; min-width: 0; align-content: start }
 .shot { aspect-ratio: 4 / 3; max-width: 100%; border-radius: 8px; overflow: hidden; position: relative; margin-bottom: 12px; background: var(--surface-2) }
 .shot img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease) }
 .case:hover .shot img { transform: scale(1.04) }
@@ -220,10 +220,12 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
 /* Dark: testimonials */
 .dark .head .body { color: var(--paper-2) }
-.voices { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px }
+.voices { display: grid; grid-template-columns: 1fr 1fr; gap: 24px }
 .voices > * { min-width: 0 }
 .dcard { background: var(--graphite); border-radius: 8px; padding: 32px; display: grid; gap: 28px; align-content: space-between }
-.rating { grid-row: span 2; align-content: end }
+.rating { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 16px 40px }
+.rating > div { display: flex; align-items: center; gap: 24px; flex-wrap: wrap }
+.rating > div .body { margin-top: 0 !important; max-width: 32ch }
 .rating b { font: 400 clamp(96px, 9vw, 140px)/1 var(--display); font-variant-numeric: tabular-nums }
 .rating .stars { color: var(--accent); letter-spacing: .12em; font-size: 18px }
 .quote { font: 400 clamp(22px, 2vw, 30px)/1.3 var(--display) }
@@ -281,6 +283,16 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 .logo-tile img.in { opacity: 1; transform: none }
 .logo-tile img.out { opacity: 0; transform: translateY(-60%) }
 
+/* Services as rows */
+.svc-list { border-top: 1px solid var(--line) }
+.svc-list .svc { display: grid; grid-template-columns: minmax(200px, 1fr) 1.6fr 1.3fr; grid-template-areas: "title body chips" "tag body chips"; column-gap: 48px; row-gap: 8px; align-items: start; padding-block: 32px; border-bottom: 1px solid var(--line) }
+.svc-list .svc > * { min-width: 0 }
+.svc-list .svc .t1 { grid-area: title }
+.svc-list .svc .house-tag { grid-area: tag }
+.svc-list .svc .body { grid-area: body }
+.svc-list .svc .chips { grid-area: chips; align-content: start }
+.case .house-tag { margin-bottom: -4px }
+
 /* Squircle buttons (chips stay fully rounded): smooth superellipse corners where the browser supports corner-shape, soft rounded rects elsewhere */
 .cta, .pill { border-radius: 18px }
 .pill.av { border-radius: 14px }
@@ -303,8 +315,6 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   .grid4 { grid-template-columns: repeat(2, 1fr) }
   .logos { grid-template-columns: repeat(3, 1fr) }
   .nums { grid-template-columns: repeat(3, 1fr) }
-  .voices { grid-template-columns: 1fr 1fr }
-  .rating { grid-row: auto; grid-column: 1 / -1 }
 }
 @media (max-width: 830px) {
   .nav { display: none }
@@ -314,11 +324,13 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   .grid3, .cases { grid-template-columns: 1fr 1fr }
   .foot-grid { grid-template-columns: 1fr 1fr }
   .row { grid-template-columns: 1fr; gap: 6px }
+  .svc-list .svc { grid-template-columns: 1fr; grid-template-areas: "title" "tag" "body" "chips"; row-gap: 12px }
   .stack .row { grid-template-columns: 1fr }
 }
 @media (max-width: 576px) {
   .grid3, .grid4, .cases, .voices, .nums, .fields { grid-template-columns: 1fr }
   .nums { grid-template-columns: 1fr 1fr }
+  .nums div:last-child { grid-column: 1 / -1 }
   .logos { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 40px }
   .logo-tile { height: 60px }
   .logo-tile img { width: 70%; height: 22px }
@@ -414,35 +426,35 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
   <section class="sec wrap" id="services" style="padding-top:0">
     <div class="head">
-      <h2 class="h2">Design and development services, <span class="hi">from first sketch to scale.</span></h2>
+      <h2 class="h2">Design and development services, from first sketch to scale.</h2>
       <p class="body">Each service is led by the studio that does it best, with the other one in the room.</p>
     </div>
-    <div class="grid3">
-      <article class="card svc"><span class="house-tag">Design Monks</span><h3 class="t1">Product design</h3><p class="body">UI/UX design for web apps, dashboards and SaaS products. We start with user research and wireframes, then design every screen and hand over a design system your engineers can build from without guesswork.</p><div class="chips"><span class="chip">User research</span><span class="chip">Wireframes</span><span class="chip">UI design</span><span class="chip">Design systems</span><span class="chip">Prototyping</span></div></article>
-      <article class="card svc"><span class="house-tag">Design Monks</span><h3 class="t1">Brand identity</h3><p class="body">Branding for startups and growing companies: positioning, logo design, visual identity and brand guidelines, built to work across your product, website, pitch deck and social channels.</p><div class="chips"><span class="chip">Brand strategy</span><span class="chip">Logo design</span><span class="chip">Guidelines</span><span class="chip">Launch assets</span></div></article>
-      <article class="card svc"><span class="house-tag">Both studios</span><h3 class="t1">Websites</h3><p class="body">Marketing websites that convert, designed by Design Monks and built in Webflow or Framer. When a site outgrows no-code, Dev Monks moves it to Next.js without losing your SEO.</p><div class="chips"><span class="chip">Webflow</span><span class="chip">Framer</span><span class="chip">Next.js</span><span class="chip">CMS</span><span class="chip">CRO</span></div></article>
-      <article class="card svc"><span class="house-tag">Dev Monks</span><h3 class="t1">SaaS engineering</h3><p class="body">Custom software development for SaaS: multi-tenant platforms, enterprise portals, APIs and rapid MVP builds on React, Node.js and Python, with QA and cloud deployment included.</p><div class="chips"><span class="chip">MVP development</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">APIs</span><span class="chip">AWS</span></div></article>
-      <article class="card svc"><span class="house-tag">Dev Monks</span><h3 class="t1">Mobile apps</h3><p class="body">iOS and Android app development, native in Swift and Kotlin or cross-platform with Flutter. Designed in-house, so the app that ships matches the screens you approved.</p><div class="chips"><span class="chip">iOS</span><span class="chip">Android</span><span class="chip">Flutter</span><span class="chip">App Store launch</span></div></article>
-      <article class="card svc"><span class="house-tag">Dev Monks</span><h3 class="t1">AI products</h3><p class="body">AI development that does real work: agentic workflows, RAG systems and custom LLM features built on OpenAI, Anthropic and Gemini, plugged into the products and tools your team already uses.</p><div class="chips"><span class="chip">AI agents</span><span class="chip">RAG</span><span class="chip">LLM integration</span><span class="chip">Automation</span></div></article>
+    <div class="svc-list">
+      <article class="svc"><span class="house-tag">Design Monks</span><h3 class="t1">Product design</h3><p class="body">UI/UX design for web apps, dashboards and SaaS products. We start with user research and wireframes, then design every screen and hand over a design system your engineers can build from without guesswork.</p><div class="chips"><span class="chip">User research</span><span class="chip">Wireframes</span><span class="chip">UI design</span><span class="chip">Design systems</span><span class="chip">Prototyping</span></div></article>
+      <article class="svc"><span class="house-tag">Design Monks</span><h3 class="t1">Brand identity</h3><p class="body">Branding for startups and growing companies: positioning, logo design, visual identity and brand guidelines, built to work across your product, website, pitch deck and social channels.</p><div class="chips"><span class="chip">Brand strategy</span><span class="chip">Logo design</span><span class="chip">Guidelines</span><span class="chip">Launch assets</span></div></article>
+      <article class="svc"><span class="house-tag">Both studios</span><h3 class="t1">Websites</h3><p class="body">Marketing websites that convert, designed by Design Monks and built in Webflow or Framer. When a site outgrows no-code, Dev Monks moves it to Next.js without losing your SEO.</p><div class="chips"><span class="chip">Webflow</span><span class="chip">Framer</span><span class="chip">Next.js</span><span class="chip">CMS</span><span class="chip">CRO</span></div></article>
+      <article class="svc"><span class="house-tag">Dev Monks</span><h3 class="t1">SaaS engineering</h3><p class="body">Custom software development for SaaS: multi-tenant platforms, enterprise portals, APIs and rapid MVP builds on React, Node.js and Python, with QA and cloud deployment included.</p><div class="chips"><span class="chip">MVP development</span><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">APIs</span><span class="chip">AWS</span></div></article>
+      <article class="svc"><span class="house-tag">Dev Monks</span><h3 class="t1">Mobile apps</h3><p class="body">iOS and Android app development, native in Swift and Kotlin or cross-platform with Flutter. Designed in-house, so the app that ships matches the screens you approved.</p><div class="chips"><span class="chip">iOS</span><span class="chip">Android</span><span class="chip">Flutter</span><span class="chip">App Store launch</span></div></article>
+      <article class="svc"><span class="house-tag">Dev Monks</span><h3 class="t1">AI products</h3><p class="body">AI development that does real work: agentic workflows, RAG systems and custom LLM features built on OpenAI, Anthropic and Gemini, plugged into the products and tools your team already uses.</p><div class="chips"><span class="chip">AI agents</span><span class="chip">RAG</span><span class="chip">LLM integration</span><span class="chip">Automation</span></div></article>
     </div>
   </section>
 
   <section class="sec wrap" id="studios" style="padding-top:0">
     <div class="head">
-      <h2 class="h2">Two specialist companies, <span class="hi">one parent.</span></h2>
+      <h2 class="h2">Two specialist companies, one parent.</h2>
       <p class="body">Hire one studio for a focused brief, or bring in both for the whole product.</p>
     </div>
     <div class="grid2">
       <article class="house">
         <div class="media sc-dm"><img src="https://cdn.prod.website-files.com/672a72b52eb5f37692d645a9/67bef3fd9b29f6cb900f3cf8_Home.avif" alt="Design Monks website homepage hero" loading="lazy" decoding="async" width="1200" height="630"></div>
-        <span class="house-tag">Design studio · designmonks.co</span>
+        <span class="house-tag">Design studio</span>
         <h3 class="t1">Design Monks</h3>
         <p class="body">An AI-powered UI/UX design agency for startups, SaaS and enterprise brands. Design Monks handles research, product design, branding and websites, with flexible monthly, quarterly or annual plans, unlimited revisions and lifetime support. 200+ brands served, rated 4.9.</p>
         <a class="link" href="https://designmonks.co" target="_blank" rel="noopener">Visit Design Monks <svg width="12" height="12"><use href="#arr"/></svg></a>
       </article>
       <article class="house">
         <div class="media sc-dev"><img src="https://cdn.prod.website-files.com/6997a168b79763ca1bc62ee8/69a1b2cdc646040e15162989_Meta%20image%20v2.avif" alt="Dev Monks website homepage hero" loading="lazy" decoding="async" width="1200" height="630"></div>
-        <span class="house-tag">Engineering · devmonks.co</span>
+        <span class="house-tag">Engineering</span>
         <h3 class="t1">Dev Monks</h3>
         <p class="body">A software development company building AI-powered web and mobile products. Dev Monks covers SaaS platforms, MVP development, mobile apps and AI automation, with 30+ in-house developers, 8+ years of experience and 50+ products shipped for startups, scale-ups and enterprises.</p>
         <a class="link" href="https://devmonks.co" target="_blank" rel="noopener">Visit Dev Monks <svg width="12" height="12"><use href="#arr"/></svg></a>
@@ -453,7 +465,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
   <section class="sec wrap" id="process" style="padding-top:0">
     <div class="head">
-      <h2 class="h2">A product development process <span class="hi">with no handoff gap.</span></h2>
+      <h2 class="h2">A product development process with no handoff gap.</h2>
       <p class="body">Design leads the early weeks and engineering leads the build. Both teams review every milestone together.</p>
     </div>
     <ol class="grid4">
@@ -466,22 +478,22 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
   <section class="sec wrap" id="work" style="padding-top:0">
     <div class="head">
-      <h2 class="h2">UI/UX design and development <span class="hi">case studies.</span></h2>
+      <h2 class="h2">UI/UX design and development case studies.</h2>
       <a class="pill" href="https://www.designmonks.co/projects" target="_blank" rel="noopener">See all work</a>
     </div>
     <div class="cases">
-      <a class="case" href="https://www.designmonks.co/projects/real-estate-ui-ux-built-for-confidence-copy" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6acdf0ca67a8cf99202620e1_Thumbnail%20(74).png" alt="Peak travel agency brand identity by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Peak</span></div><h3 class="t1">Peak</h3><p class="body">Travel · A lively travel-agency brand identity with expressive type, bold colours and destination visuals.</p></a>
-      <a class="case" href="https://www.designmonks.co/projects/real-estate-ui-ux-built-for-confidence" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ac789bed71b775fd16dab57_UX%20_%20Design%20Monks.png" alt="Vane real estate property search app UI by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Vane</span></div><h3 class="t1">Vane</h3><p class="body">Real Estate · Property search and listing UI with lifestyle-led branding, filtering and clear calls to action.</p></a>
-      <a class="case" href="https://www.designmonks.co/projects/kozer-coffee-brand-identity" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4b2fac1aa7ff60b78c252_Thumbnail%20(73).png" alt="Kozer specialty coffee packaging and brand identity by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Kozer</span></div><h3 class="t1">Kozer</h3><p class="body">Food &amp; Beverages · Premium brand identity and packaging for a specialty coffee brand, with heritage details and origin-led character.</p></a>
-      <a class="case" href="https://www.designmonks.co/projects/geopulse-b2b-saas-dashboard-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ac4f1eb21939303574de0e9_UX%20_%20Design%20Monks.png" alt="Geopulse B2B SaaS operations dashboard design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Geopulse</span></div><h3 class="t1">Geopulse</h3><p class="body">SaaS · A B2B operations dashboard for oil and gas teams, combining real-time monitoring, analytics and alerts.</p></a>
-      <a class="case" href="https://www.designmonks.co/projects/metabb-web3-rewards-app-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4a78b52097ccf2861c3fe_Frame%20214.png" alt="MetaBB Web3 rewards mobile app design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">MetaBB</span></div><h3 class="t1">MetaBB</h3><p class="body">Web3 · A mobile-first rewards app bringing tasks, cashback, airdrops, referrals and wallet management into one place.</p></a>
-      <a class="case" href="https://www.designmonks.co/projects/optiq-smart-glasswear-website-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4a8cb3e547936f7145fe3_Frame%20215.png" alt="OPTIQ smart glasses website design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">OPTIQ</span></div><h3 class="t1">OPTIQ</h3><p class="body">E-commerce · A premium landing page for smart glasses, blending AR concepts, cinematic visuals and 3D presentation to drive pre-orders.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/real-estate-ui-ux-built-for-confidence-copy" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6acdf0ca67a8cf99202620e1_Thumbnail%20(74).png" alt="Peak travel agency brand identity by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Peak</span></div><span class="house-tag">Travel</span><h3 class="t1">Peak</h3><p class="body">A lively travel-agency brand identity with expressive type, bold colours and destination visuals.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/real-estate-ui-ux-built-for-confidence" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ac789bed71b775fd16dab57_UX%20_%20Design%20Monks.png" alt="Vane real estate property search app UI by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Vane</span></div><span class="house-tag">Real Estate</span><h3 class="t1">Vane</h3><p class="body">Property search and listing UI with lifestyle-led branding, filtering and clear calls to action.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/kozer-coffee-brand-identity" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4b2fac1aa7ff60b78c252_Thumbnail%20(73).png" alt="Kozer specialty coffee packaging and brand identity by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Kozer</span></div><span class="house-tag">Food &amp; Beverages</span><h3 class="t1">Kozer</h3><p class="body">Premium brand identity and packaging for a specialty coffee brand, with heritage details and origin-led character.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/geopulse-b2b-saas-dashboard-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ac4f1eb21939303574de0e9_UX%20_%20Design%20Monks.png" alt="Geopulse B2B SaaS operations dashboard design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">Geopulse</span></div><span class="house-tag">SaaS</span><h3 class="t1">Geopulse</h3><p class="body">A B2B operations dashboard for oil and gas teams, combining real-time monitoring, analytics and alerts.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/metabb-web3-rewards-app-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4a78b52097ccf2861c3fe_Frame%20214.png" alt="MetaBB Web3 rewards mobile app design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">MetaBB</span></div><span class="house-tag">Web3</span><h3 class="t1">MetaBB</h3><p class="body">A mobile-first rewards app bringing tasks, cashback, airdrops, referrals and wallet management into one place.</p></a>
+      <a class="case" href="https://www.designmonks.co/projects/optiq-smart-glasswear-website-design" target="_blank" rel="noopener"><div class="shot"><img src="https://cdn.prod.website-files.com/674703d2af36853f65da67e0/6ab4a8cb3e547936f7145fe3_Frame%20215.png" alt="OPTIQ smart glasses website design by Design Monks" loading="lazy" decoding="async" width="1200" height="900"><span class="shot-fb" aria-hidden="true">OPTIQ</span></div><span class="house-tag">E-commerce</span><h3 class="t1">OPTIQ</h3><p class="body">A premium landing page for smart glasses, blending AR concepts, cinematic visuals and 3D presentation to drive pre-orders.</p></a>
     </div>
   </section>
 
   <section class="sec wrap" id="industries" style="padding-top:0">
     <div class="head">
-      <h2 class="h2">Sectors we know, <span class="hi">tools we build with.</span></h2>
+      <h2 class="h2">Sectors we know, tools we build with.</h2>
       <p class="body">Our studios have designed and built products across regulated and fast-moving markets, from fintech apps to healthcare booking.</p>
     </div>
     <div class="chips ind"><span class="chip">FinTech</span><span class="chip">SaaS</span><span class="chip">EdTech</span><span class="chip">Travel</span><span class="chip">PropTech</span><span class="chip">HealthTech</span><span class="chip">CRM</span><span class="chip">E-commerce</span><span class="chip">FMCG</span><span class="chip">Fitness</span></div>
@@ -498,7 +510,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   <div class="dark">
     <section class="sec wrap" id="voices">
       <div class="head">
-        <h2 class="h2">What clients say about <span class="hi">both studios.</span></h2>
+        <h2 class="h2">What clients say about both studios.</h2>
       </div>
       <div class="voices">
         <div class="dcard rating"><span class="stars" aria-hidden="true">★★★★★</span><div><b>4.9</b><p class="body" style="margin-top:12px">Average client rating across Design Monks and Dev Monks</p></div></div>
@@ -511,7 +523,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
     <section class="sec wrap" id="team" style="padding-top:0">
       <div class="head">
-        <h2 class="h2">The people <span class="hi">behind the studios.</span></h2>
+        <h2 class="h2">The people behind the studios.</h2>
         <p class="body">Every engagement has a senior lead from each studio who stays with it from discovery to launch.</p>
       </div>
       <div class="grid3 team">
@@ -523,7 +535,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
 
     <section class="sec wrap" id="faq" style="padding-top:0">
       <div class="head">
-        <h2 class="h2">Questions <span class="hi">founders ask us.</span></h2>
+        <h2 class="h2">Questions founders ask us.</h2>
         <p class="body">Can't find your answer? Send a brief and a lead will reply within one working day.</p>
       </div>
       <div class="faq">
