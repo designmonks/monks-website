@@ -401,7 +401,7 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   <section class="hero wrap" aria-label="Introduction">
     <div class="reel">
       <div class="reel-ph" aria-hidden="true"><svg viewBox="0 0 292 81"><use href="#mk"/></svg><span>Showreel 2026</span></div>
-      <video id="reel" muted loop playsinline preload="metadata" aria-label="Design Monks showreel 2026">
+      <video id="reel" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="Design Monks showreel 2026">
         <source src="https://designmonks.b-cdn.net/DM%20Others/DM%20Showreel%202026.mp4" type="video/mp4">
       </video>
       <button class="reel-ctl" type="button" id="reel-ctl" hidden><svg viewBox="0 0 14 14" fill="currentColor"><rect x="3" y="2" width="3" height="10" rx="1"/><rect x="8" y="2" width="3" height="10" rx="1"/></svg><span>Pause reel</span></button>
@@ -626,7 +626,14 @@ a.chip:hover { background: var(--graphite); color: var(--paper) }
   var playIcon = '<svg viewBox="0 0 14 14" fill="currentColor"><path d="M4 2.5v9l7.5-4.5z"/></svg>';
   var pauseIcon = ctl.innerHTML.split('<span>')[0];
   function label() { ctl.innerHTML = (v.paused ? playIcon : pauseIcon) + '<span>' + (v.paused ? 'Play reel' : 'Pause reel') + '</span>'; }
-  v.addEventListener('loadeddata', function () { ctl.hidden = false; if (!reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } label(); });
+  // iOS Safari never fires loadeddata with preload=metadata until playback starts,
+  // so start playback directly; retry once data is ready and on first touch (Low Power Mode)
+  v.muted = true; v.defaultMuted = true;
+  function tryPlay() { if (reduce || !v.paused) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  if (reduce) { v.removeAttribute('autoplay'); v.pause(); } else tryPlay();
+  v.addEventListener('loadedmetadata', function () { ctl.hidden = false; label(); });
+  v.addEventListener('canplay', tryPlay);
+  document.addEventListener('touchstart', function once() { document.removeEventListener('touchstart', once); tryPlay(); }, { passive: true });
   v.addEventListener('play', label); v.addEventListener('pause', label);
   ctl.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
   v.querySelector('source').addEventListener('error', function () { v.hidden = true; });
